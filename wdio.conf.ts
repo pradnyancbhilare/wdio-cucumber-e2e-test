@@ -99,6 +99,7 @@ export const config: Options.Testrunner = {
             "goog:chromeOptions": {
                 args: headless.toUpperCase() === "Y" ? ["--headless", "--disable-dev-shm-usage", "--no-sandbox"] : ["--use-fake-ui-for-media-stream", "--window-size=1920,1080"]
             },
+            //"selenium.server.url": "",
             acceptInsecureCerts: true,
             timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
             // If outputDir is provided WebdriverIO can capture driver session logs
@@ -113,6 +114,16 @@ export const config: Options.Testrunner = {
         //     maxInstances: 5,
         //     //
         //     browserName: 'firefox',
+        //     "moz:firefoxOptions": {
+        //         args: headless.toUpperCase() === "Y" ? ["-headless", "-disable-dev-shm-usage", "-no-sandbox"] : ["-width=1920", "-height=1080"],
+        //         prefs: {
+        //             "permissions.default.notifications": 1,
+        //             "permissions.default.geolocation": 1,
+        //             "permissions.default.microphone": 1,
+        //             "permissions.default.camera": 1,
+        //             "media.navigator.streams.fake": true
+        //         }
+        //     },
         //     acceptInsecureCerts: true,
         //     timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
         //     // If outputDir is provided WebdriverIO can capture driver session logs
