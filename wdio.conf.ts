@@ -96,10 +96,10 @@ export const config: Options.Testrunner = {
             maxInstances: 5,
             //
             browserName: 'chrome',
+            //path: '/wd/hub',
             "goog:chromeOptions": {
                 args: headless.toUpperCase() === "Y" ? ["--headless", "--disable-dev-shm-usage", "--no-sandbox"] : ["--use-fake-ui-for-media-stream", "--window-size=1920,1080"]
             },
-            //"selenium.server.url": "",
             acceptInsecureCerts: true,
             timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
             // If outputDir is provided WebdriverIO can capture driver session logs
@@ -107,30 +107,31 @@ export const config: Options.Testrunner = {
             // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
             // excludeDriverLogs: ['bugreport', 'server'],
         },
-        // {
-        //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        //     // grid with only 5 firefox instances available you can make sure that not more than
-        //     // 5 instances get started at a time.
-        //     maxInstances: 5,
-        //     //
-        //     browserName: 'firefox',
-        //     "moz:firefoxOptions": {
-        //         args: headless.toUpperCase() === "Y" ? ["-headless", "-disable-dev-shm-usage", "-no-sandbox"] : ["-width=1920", "-height=1080"],
-        //         prefs: {
-        //             "permissions.default.notifications": 1,
-        //             "permissions.default.geolocation": 1,
-        //             "permissions.default.microphone": 1,
-        //             "permissions.default.camera": 1,
-        //             "media.navigator.streams.fake": true
-        //         }
-        //     },
-        //     acceptInsecureCerts: true,
-        //     timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
-        //     // If outputDir is provided WebdriverIO can capture driver session logs
-        //     // it is possible to configure which logTypes to include/exclude.
-        //     // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        //     // excludeDriverLogs: ['bugreport', 'server'],
-        // }
+        {
+            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+            // grid with only 5 firefox instances available you can make sure that not more than
+            // 5 instances get started at a time.
+            maxInstances: 5,
+            //
+            browserName: 'firefox',
+            //path: '/wd/hub',
+            "moz:firefoxOptions": {
+                args: headless.toUpperCase() === "Y" ? ["-headless", "-disable-dev-shm-usage", "-no-sandbox"] : ["-width=1920", "-height=1080"],
+                prefs: {
+                    "permissions.default.notifications": 1,
+                    "permissions.default.geolocation": 1,
+                    "permissions.default.microphone": 1,
+                    "permissions.default.camera": 1,
+                    "media.navigator.streams.fake": true
+                }
+            },
+            acceptInsecureCerts: true,
+            timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
+            // If outputDir is provided WebdriverIO can capture driver session logs
+            // it is possible to configure which logTypes to include/exclude.
+            // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+            // excludeDriverLogs: ['bugreport', 'server'],
+        }
     ],
     //
     // ===================
@@ -179,10 +180,27 @@ export const config: Options.Testrunner = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    //services: ['chromedriver', 'geckodriver'],
-    services: ['chromedriver'],
+    services: ['chromedriver', 'geckodriver'],
+    //services: ['chromedriver'],
     //services: ['geckodriver'],
-    
+    // services: [
+    //     ['docker', [{ 
+    //     image: 'selenium/standalone-chrome',
+    //     healthCheck: 'http://localhost:4444',
+    //     options: { 
+    //       p: ['4444:4444'],
+    //       shmSize: '2g'
+    //     }    
+    //     }, { 
+    //     image: 'selenium/standalone-firefox',
+    //     healthCheck: 'http://localhost:4444',
+    //     options: { 
+    //       p: ['4444:4444'],
+    //       shmSize: '2g'
+    //     }    
+    //     }]]
+    // ],
+
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
