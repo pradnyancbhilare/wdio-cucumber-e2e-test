@@ -1,6 +1,7 @@
 # Project specific
 allure-results
 .DS_Store
+tmp
 
 # Logs
 logs

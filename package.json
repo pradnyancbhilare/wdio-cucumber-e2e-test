@@ -4,7 +4,7 @@
     "description": "This is webdriver io cucumber end to end test",
     "main": "index.js",
     "scripts": {
-        "debug:browser:demo": "export DEBUG=Y && export HEADLESS=N && export BROWSER=CHROME && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
+        "debug:chrome:demo": "export DEBUG=Y && export HEADLESS=N && export BROWSER=CHROME && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
         "debug:demo": "export DEBUG=Y && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@demo'",
         "webInteract": "export DEBUG=N && export HEADLESS=N && npx wdio wdio.conf.ts --cucumberOpts.tagExpression='@webInteract'",
         "combine:demo:webInteract": "npm run debug:demo & npm run webInteract",
