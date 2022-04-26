@@ -182,7 +182,7 @@ When (/^Perform web interactions$/, async function() {
     let button1 = await $(`button=Click for JS Alert`)
     button1.click()
     await browser.pause(1000)
-    if(await browser.isAlertOpen() && (await browser.getAlertText()).match("I am a JS Alert")){
+    if((await browser.getAlertText()).match("I am a JS Alert")){
         await browser.acceptAlert()
         chai.expect(await $(`#result`).getText()).to.equal("You successfully clicked an alert")
         await browser.pause(1000)
@@ -191,7 +191,7 @@ When (/^Perform web interactions$/, async function() {
     let button2 = await $(`button=Click for JS Confirm`)
     button2.click()
     await browser.pause(1000)
-    if(await browser.isAlertOpen() && (await browser.getAlertText()).match("I am a JS Confirm")){
+    if((await browser.getAlertText()).match("I am a JS Confirm")){
         await browser.acceptAlert()
         chai.expect(await $(`#result`).getText()).to.equal("You clicked: Ok")
         await browser.pause(1000)
@@ -200,7 +200,7 @@ When (/^Perform web interactions$/, async function() {
     let button3 = await $(`button=Click for JS Prompt`)
     button3.click()
     await browser.pause(1000)
-    if(await browser.isAlertOpen() && (await browser.getAlertText()).match("I am a JS Prompt")){
+    if((await browser.getAlertText()).match("I am a JS Prompt")){
         let alertText = "Hello World!";
         await browser.sendAlertText(alertText)
         await browser.pause(1000)
