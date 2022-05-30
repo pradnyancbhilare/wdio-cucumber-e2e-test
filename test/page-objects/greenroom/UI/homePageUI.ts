@@ -3,6 +3,9 @@ import reporter from "../../../utils/reporter"
 
 class HomePageUI extends Page {
 
+	public static eventTitleNameValue: string;
+
+
     constructor(){
         super()
     }
@@ -43,6 +46,14 @@ class HomePageUI extends Page {
     // page objects - Profile menu options
     get editProfileFormClosure() {return $(`//div[@class='meta-menu-content open']//button[@class='transparent text-highlight']`)}
     get appSignOutCancelButton() {return $(`//div[@class='dialog-container right']//button[1]`)}
+	
+	// Search SGR Name
+	get searchSGRName(){return $(`//input[@placeholder='Search']`)}
+	get sgrEventTitleName() {return $(`div[class='event-titles'] h4`)}
+	get clickEventAction(){return $(`//div[@class='event-row']`)}
+
+
+
 
     // page object methods
     async navigateToGreenroomUrl(path: string) {
@@ -276,6 +287,45 @@ class HomePageUI extends Page {
                 break;
         }
     }
+
+
+	
+	/**
+	 * @param eventName
+	 * Search New SGR Event and validate the sgrEventName using chai
+	 */
+	 async searchNewSGREvent(eventName : string) {
+		console.log('Event Name to search is ' , eventName)
+		try {
+			await this.typeInto(await this.searchSGRName, eventName)
+			await browser.pause(3000)
+			const eventTitleName = await this.sgrEventTitleName
+			HomePageUI.eventTitleNameValue = await eventTitleName.getText()
+			console.log('Event tile name after searching is : ' , HomePageUI.eventTitleNameValue)
+			await browser.pause(1000)
+		} catch (err){
+			err.message = `Error searching sgr event name`
+			throw err
+		}
+	}
+
+
+
+	/*
+	 * Navigate to show details page  
+	 */
+	async navigateToShowDetailsPage() {
+		try {
+			await this.click(await this.clickEventAction)	
+			await browser.pause(3000)
+		}catch (err) {
+			err.message=`Error when navigating to show details page`
+			throw err
+		}
+	}
+
+
+
 
     private async selectProfileOption(index: number) {
         let profileOptionArr = []

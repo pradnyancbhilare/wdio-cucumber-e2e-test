@@ -1,7 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import chai from "chai";
 import reporter from "../../../utils/reporter"
-import HomePageUi from "../../../page-objects/streams/UI/homePageUi"
+import HomePageUi from "../../../page-objects/streams/UI/homePageUI"
 
 Given (/^Login to streams using UI$/, async function(){
     reporter.addStep("info", `The login to streams is in progress...`)

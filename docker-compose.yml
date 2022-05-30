@@ -26,20 +26,20 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - VNC_NO_PASSWORD=1
       - SE_NODE_MAX_SESSIONS=2
-      
+
   chrome-video:
     image: selenium/video:ffmpeg-4.3.1-20220317
-    volumes: 
+    volumes:
         - ./tmp/videos:/videos
     depends_on:
         - chrome
     environment:
         - DISPLAY_CONTAINER_NAME=chrome
         - FILE_NAME=chrome_video.mp4
-        
+
   firefox-video:
     image: selenium/video:ffmpeg-4.3.1-20220317
-    volumes: 
+    volumes:
         - ./tmp/videos:/videos
     depends_on:
         - firefox
@@ -54,3 +54,6 @@ services:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+    environment:
+      - SCREEN_WIDTH=1920
+      - SCREEN_HEIGHT=1080

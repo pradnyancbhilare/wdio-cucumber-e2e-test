@@ -1,0 +1,2108 @@
+{
+    "event": 10571,
+    "channel": 67,
+    "status": 2,
+    "template": {
+        "template": 2,
+        "name": "Studio 54",
+        "description": "Display your works of art: Studio 54's minimalistic look highlights your assets beautifully, allowing your unique content to pop against its clean white canvas",
+        "preview_image": "https://assets.brandnot.live/assets/studio-54-preview.png",
+        "channel": 0,
+        "properties": {
+            "design": {
+                "font": 35,
+                "colors": 70
+            }
+        }
+    },
+    "name": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+    "settings": {
+        "email": {
+            "hideBrandliveLogo": false,
+            "colors": {
+                "channel": 0,
+                "status": 1,
+                "archived": false,
+                "base_language": "en",
+                "created_by": 5546732,
+                "created_at": "2021-03-17T21:39:41.322Z",
+                "modified_by": null,
+                "modified_at": null,
+                "color_pack": 70,
+                "title": "Bold",
+                "colors": {
+                    "accentColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "customColor0": [
+                        "#1A1A1A",
+                        0.1
+                    ],
+                    "bodyTextColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "containerColor": [
+                        "#FFFFFF",
+                        1
+                    ],
+                    "backgroundColor": [
+                        "#F8F9FB",
+                        1
+                    ],
+                    "headingTextColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "secondaryAccentColor": [
+                        "#18D158",
+                        1
+                    ],
+                    "secondaryBackgroundColor": [
+                        "#1A1A1A",
+                        1
+                    ]
+                },
+                "module_id": 28800
+            }
+        },
+        "design": {
+            "font": {
+                "channel": 0,
+                "status": 1,
+                "archived": false,
+                "base_language": "en",
+                "created_by": 5546732,
+                "created_at": "2021-03-17T23:25:32.475Z",
+                "modified_by": null,
+                "modified_at": null,
+                "font_pack": 35,
+                "title": "Source Serif Pro & Poppins",
+                "description": "Select fonts that share an overarching theme and have a pleasing contrast.",
+                "heading_url": "https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap",
+                "heading_name": "Source Serif Pro",
+                "body_url": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap",
+                "body_name": "Poppins",
+                "module_id": 28803
+            },
+            "colors": {
+                "channel": 0,
+                "status": 1,
+                "archived": false,
+                "base_language": "en",
+                "created_by": 5546732,
+                "created_at": "2021-03-17T21:39:41.322Z",
+                "modified_by": null,
+                "modified_at": null,
+                "color_pack": 70,
+                "title": "Bold",
+                "colors": {
+                    "accentColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "customColor0": [
+                        "#1A1A1A",
+                        0.1
+                    ],
+                    "bodyTextColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "containerColor": [
+                        "#FFFFFF",
+                        1
+                    ],
+                    "backgroundColor": [
+                        "#F8F9FB",
+                        1
+                    ],
+                    "headingTextColor": [
+                        "#1A1A1A",
+                        1
+                    ],
+                    "secondaryAccentColor": [
+                        "#18D158",
+                        1
+                    ],
+                    "secondaryBackgroundColor": [
+                        "#1A1A1A",
+                        1
+                    ]
+                },
+                "module_id": 28800
+            }
+        },
+        "content_editor": "quill"
+    },
+    "registration_settings": {
+        "type": 0,
+        "title": {
+            "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+            "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+            "changed": ""
+        },
+        "description": {
+            "en": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+            "base": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+            "changed": ""
+        },
+        "enableSteps": false,
+        "enableSocial": false,
+        "requirements": [],
+        "enableRecaptcha": false,
+        "sessionReminders": true,
+        "blockedDomainEmails": null,
+        "sendEmailConfirmation": true,
+        "postEventFeedbackSurvey": true,
+        "registrationConfirmation": false
+    },
+    "registration_on": true,
+    "homepage": {
+        "homepage": 9856,
+        "channel": 67,
+        "header": {
+            "logo": null,
+            "layout": "center",
+            "navItems": [
+                {
+                    "type": 0,
+                    "content": {
+                        "isOn": true,
+                        "section_module_id": 243356
+                    },
+                    "button_name": {
+                        "en": "About",
+                        "base": "About"
+                    }
+                },
+                {
+                    "type": 0,
+                    "content": {
+                        "isOn": true,
+                        "section_module_id": 243354
+                    },
+                    "button_name": {
+                        "en": "Speakers",
+                        "base": "Speakers"
+                    }
+                },
+                {
+                    "type": 0,
+                    "content": {
+                        "isOn": true,
+                        "section_module_id": 243355
+                    },
+                    "button_name": {
+                        "en": "Agenda",
+                        "base": "Agenda"
+                    }
+                }
+            ],
+            "is_sticky": null,
+            "callToAction": {
+                "type": 1,
+                "content": {
+                    "isOn": true,
+                    "page": "registration"
+                },
+                "button_name": {
+                    "en": "Registration",
+                    "base": "Registration"
+                }
+            }
+        },
+        "use_header": true,
+        "footer": {
+            "logo": null,
+            "navItems": [
+                {
+                    "type": 1,
+                    "content": {
+                        "isOn": true,
+                        "page": "terms-and-conditions"
+                    },
+                    "button_name": {
+                        "en": "Terms and Conditions",
+                        "base": "Terms and Conditions"
+                    }
+                },
+                {
+                    "type": 1,
+                    "content": {
+                        "isOn": true,
+                        "page": "privacy-policy"
+                    },
+                    "button_name": {
+                        "en": "Privacy Policy",
+                        "base": "Privacy Policy"
+                    }
+                }
+            ]
+        },
+        "use_footer": true,
+        "modules": [
+            {
+                "id": 243353,
+                "type": 0,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Main_Banner-default_image.jpeg",
+                    "title": {
+                        "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "callToAction": {
+                        "type": 1,
+                        "content": {
+                            "isOn": true,
+                            "page": "registration"
+                        },
+                        "button_name": {
+                            "en": "Button text",
+                            "base": "Button text"
+                        }
+                    },
+                    "originalImage": null
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243354,
+                "type": 1,
+                "content": {
+                    "title": {
+                        "en": "Meet our featured speakers",
+                        "base": "Meet our featured speakers",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Our Speakers",
+                        "base": "Our Speakers",
+                        "changed": ""
+                    },
+                    "related_sessions": []
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243355,
+                "type": 2,
+                "content": {
+                    "title": {
+                        "en": "Explore our sessions",
+                        "base": "Explore our sessions",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Schedule",
+                        "base": "Schedule",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243356,
+                "type": 3,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-about-default_image.jpeg",
+                    "title": {
+                        "en": "About the Venue",
+                        "base": "About the Venue",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "originalImage": "",
+                    "custom_heading": {
+                        "en": "About Event",
+                        "base": "About Event",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243357,
+                "type": 4,
+                "content": {
+                    "title": {
+                        "en": "Our Featured Products",
+                        "base": "Our Featured Products",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Products",
+                        "base": "Products",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243358,
+                "type": 5,
+                "content": {
+                    "title": {
+                        "en": "Explore More About Our Processes",
+                        "base": "Explore More About Our Processes",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Showreel",
+                        "base": "Showreel",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243359,
+                "type": 6,
+                "content": {
+                    "title": {
+                        "en": "They Helped us Go Live",
+                        "base": "They Helped us Go Live",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+                        "base": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Our Sponsors",
+                        "base": "Our Sponsors",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243360,
+                "type": 7,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Call_Out-default_image.jpeg",
+                    "title": {
+                        "en": "Title is king, content is queen",
+                        "base": "Title is king, content is queen",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Let's get it started",
+                        "base": "Let's get it started",
+                        "changed": ""
+                    },
+                    "callToAction": {
+                        "type": 1,
+                        "content": {
+                            "isOn": true,
+                            "page": "registration"
+                        },
+                        "button_name": {
+                            "en": "Register now, it's free",
+                            "base": "Register now, it's free"
+                        }
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            }
+        ],
+        "uuid": "ba01c504-dfde-11ec-9746-fdfcbba8566b",
+        "event_main_nav_items": [
+            {
+                "name": "Home",
+                "uuid": "e983f21f-60f9-4558-90c1-0115b6749b83",
+                "is_on": true,
+                "custom_name": {
+                    "en": "Home",
+                    "base": "Home"
+                }
+            },
+            {
+                "name": "Sessions",
+                "uuid": "9009f3eb-922f-47d5-9d51-822a120c0766",
+                "is_on": true,
+                "custom_name": {
+                    "en": "Sessions",
+                    "base": "Sessions"
+                }
+            }
+        ],
+        "event_profile_nav_items": null,
+        "post_register_preview_modules": null,
+        "post_register_home_modules": [
+            {
+                "id": 243361,
+                "type": 0,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Main_Banner-default_image.jpeg",
+                    "title": {
+                        "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "callToAction": {
+                        "type": 1,
+                        "content": {
+                            "isOn": true,
+                            "page": "registration"
+                        },
+                        "button_name": {
+                            "en": "Button text",
+                            "base": "Button text"
+                        }
+                    },
+                    "originalImage": null
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243363,
+                "type": 2,
+                "content": {
+                    "title": {
+                        "en": "Explore our sessions",
+                        "base": "Explore our sessions",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Schedule",
+                        "base": "Schedule",
+                        "changed": ""
+                    }
+                },
+                "is_on": true,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243362,
+                "type": 1,
+                "content": {
+                    "title": {
+                        "en": "Meet our featured speakers",
+                        "base": "Meet our featured speakers",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Our Speakers",
+                        "base": "Our Speakers",
+                        "changed": ""
+                    },
+                    "related_sessions": []
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243364,
+                "type": 3,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-about-default_image.jpeg",
+                    "title": {
+                        "en": "About the Venue",
+                        "base": "About the Venue",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "originalImage": "",
+                    "custom_heading": {
+                        "en": "About Event",
+                        "base": "About Event",
+                        "changed": ""
+                    }
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243365,
+                "type": 4,
+                "content": {
+                    "title": {
+                        "en": "Our Featured Products",
+                        "base": "Our Featured Products",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Products",
+                        "base": "Products",
+                        "changed": ""
+                    }
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243366,
+                "type": 5,
+                "content": {
+                    "title": {
+                        "en": "Explore More About Our Processes",
+                        "base": "Explore More About Our Processes",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Showreel",
+                        "base": "Showreel",
+                        "changed": ""
+                    }
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243367,
+                "type": 6,
+                "content": {
+                    "title": {
+                        "en": "They Helped us Go Live",
+                        "base": "They Helped us Go Live",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+                        "base": "Good descriptive writing creates an impression. Just click “Edit” icon or double click me to add your own content.​",
+                        "changed": ""
+                    },
+                    "layout_type": "standard",
+                    "custom_heading": {
+                        "en": "Our Sponsors",
+                        "base": "Our Sponsors",
+                        "changed": ""
+                    }
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            },
+            {
+                "id": 243368,
+                "type": 7,
+                "content": {
+                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Call_Out-default_image.jpeg",
+                    "title": {
+                        "en": "Title is king, content is queen",
+                        "base": "Title is king, content is queen",
+                        "changed": ""
+                    },
+                    "description": {
+                        "en": "Let's get it started",
+                        "base": "Let's get it started",
+                        "changed": ""
+                    },
+                    "callToAction": {
+                        "type": 1,
+                        "content": {
+                            "isOn": true,
+                            "page": "registration"
+                        },
+                        "button_name": {
+                            "en": "Register now, it's free",
+                            "base": "Register now, it's free"
+                        }
+                    }
+                },
+                "is_on": false,
+                "content_modules": null,
+                "is_custom": false,
+                "styling_overrides": null,
+                "is_post_register_home_preview": false,
+                "is_edited": false,
+                "modules": null
+            }
+        ],
+        "languages": [
+            "en"
+        ]
+    },
+    "sessions": [
+        {
+            "session": 14481,
+            "channel": 67,
+            "title": {
+                "en": "On Demand 3",
+                "base": "On Demand 3"
+            },
+            "description": null,
+            "tracks": [],
+            "default_language": "en",
+            "languages": [
+                "en"
+            ],
+            "on_demand": true,
+            "timestamp": null,
+            "layout": {
+                "withMenu": true,
+                "overlayChat": false
+            },
+            "moderation": null,
+            "end_timestamp": null,
+            "uuid": "b96189fe-dfde-11ec-9746-fdfcbba8566b",
+            "modules": [
+                {
+                    "id": 243317,
+                    "type": 16,
+                    "content": {
+                        "title": {
+                            "en": "On Demand 3",
+                            "base": "On Demand 3",
+                            "changed": ""
+                        },
+                        "description": {
+                            "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                            "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood."
+                        },
+                        "custom_heading": {
+                            "en": "Session Description",
+                            "base": "Session Description"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243318,
+                    "type": 1,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Speakers",
+                            "base": "Speakers"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243319,
+                    "type": 12,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Questions",
+                            "base": "Questions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243320,
+                    "type": 13,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Quizzes",
+                            "base": "Quizzes"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243321,
+                    "type": 14,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Polls",
+                            "base": "Polls"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243322,
+                    "type": 4,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Products",
+                            "base": "Products"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243323,
+                    "type": 8,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Documents",
+                            "base": "Documents"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243324,
+                    "type": 17,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Similar Sessions",
+                            "base": "Similar Sessions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243325,
+                    "type": 10,
+                    "content": null,
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                }
+            ],
+            "video": null,
+            "image": null,
+            "video_duration": 0,
+            "ivs_channel": null,
+            "session_type": "on-demand",
+            "module_grouping": [
+                {
+                    "icon": "infoOutline",
+                    "name": {
+                        "en": "Overview",
+                        "base": "Overview"
+                    },
+                    "uuid": "61fffd09-a1d3-44bc-bdef-1baf5623c1ae",
+                    "is_on": true,
+                    "modules": [
+                        243317,
+                        243318,
+                        243322,
+                        243324
+                    ]
+                },
+                {
+                    "icon": "bar-graph",
+                    "name": {
+                        "en": "Polls",
+                        "base": "Polls"
+                    },
+                    "uuid": "7d597d3b-2c68-4742-8940-446f4b3c7c78",
+                    "is_on": true,
+                    "modules": [
+                        243320,
+                        243321
+                    ]
+                },
+                {
+                    "icon": "documents",
+                    "name": {
+                        "en": "Documents",
+                        "base": "Documents"
+                    },
+                    "uuid": "6912ad9d-59f4-4c31-80f1-12e7a6cd25bb",
+                    "is_on": true,
+                    "modules": [
+                        243323
+                    ]
+                },
+                {
+                    "icon": "images",
+                    "name": {
+                        "en": "Questions",
+                        "base": "Questions"
+                    },
+                    "uuid": "758891fb-065b-4cc6-ad06-db420841b592",
+                    "is_on": true,
+                    "modules": [
+                        243319
+                    ]
+                }
+            ],
+            "on_demand_video": null,
+            "is_on": null,
+            "broadcast_type": null,
+            "use_different_thumbnails": false,
+            "pre_broadcast_thumbnail": null,
+            "post_broadcast_thumbnail": null,
+            "custom_css": null,
+            "breakout_rooms": null,
+            "replay_on": null,
+            "should_record": false,
+            "opentok_id": null,
+            "opentok_id_issued_timestamp": null,
+            "session_chat_enabled": true,
+            "streaming_options": {
+                "single_stream": false
+            },
+            "current_language": "en",
+            "video_player_controls_settings": {
+                "color_theme": "default"
+            },
+            "reaction_settings": {
+                "enabled": false,
+                "reactions": []
+            },
+            "breakout_room_order": null,
+            "breakout_session_hosts": null,
+            "breakout_session": null,
+            "firesides_hosts": null
+        },
+        {
+            "session": 14482,
+            "channel": 67,
+            "title": {
+                "en": "Broadcast 2",
+                "base": "Broadcast 2"
+            },
+            "description": null,
+            "tracks": [],
+            "default_language": "en",
+            "languages": [
+                "en"
+            ],
+            "on_demand": false,
+            "timestamp": 1653891722068,
+            "layout": {
+                "withMenu": true,
+                "overlayChat": false
+            },
+            "moderation": null,
+            "end_timestamp": 1653892622068,
+            "uuid": "b976b108-dfde-11ec-9746-fdfcbba8566b",
+            "modules": [
+                {
+                    "id": 243326,
+                    "type": 16,
+                    "content": {
+                        "title": {
+                            "en": "Broadcast 2",
+                            "base": "Broadcast 2",
+                            "changed": ""
+                        },
+                        "description": {
+                            "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                            "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood."
+                        },
+                        "custom_heading": {
+                            "en": "Session Description",
+                            "base": "Session Description"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243327,
+                    "type": 1,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Speakers",
+                            "base": "Speakers"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243328,
+                    "type": 12,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Questions",
+                            "base": "Questions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243329,
+                    "type": 13,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Quizzes",
+                            "base": "Quizzes"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243330,
+                    "type": 14,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Polls",
+                            "base": "Polls"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243331,
+                    "type": 4,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Products",
+                            "base": "Products"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243332,
+                    "type": 8,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Documents",
+                            "base": "Documents"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243333,
+                    "type": 17,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Similar Sessions",
+                            "base": "Similar Sessions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243334,
+                    "type": 10,
+                    "content": null,
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                }
+            ],
+            "video": null,
+            "image": null,
+            "video_duration": 0,
+            "ivs_channel": null,
+            "session_type": "broadcast",
+            "module_grouping": [
+                {
+                    "icon": "infoOutline",
+                    "name": {
+                        "en": "Overview",
+                        "base": "Overview"
+                    },
+                    "uuid": "d07f0451-8293-41bc-b724-63fceb00d334",
+                    "is_on": true,
+                    "modules": [
+                        243326,
+                        243327,
+                        243331,
+                        243333
+                    ]
+                },
+                {
+                    "icon": "bar-graph",
+                    "name": {
+                        "en": "Polls",
+                        "base": "Polls"
+                    },
+                    "uuid": "07acc5d6-d6b3-4da5-a060-49b04803529c",
+                    "is_on": true,
+                    "modules": [
+                        243329,
+                        243330
+                    ]
+                },
+                {
+                    "icon": "documents",
+                    "name": {
+                        "en": "Documents",
+                        "base": "Documents"
+                    },
+                    "uuid": "74225279-84bd-46c9-a0d5-150c85edc1b1",
+                    "is_on": true,
+                    "modules": [
+                        243332
+                    ]
+                },
+                {
+                    "icon": "images",
+                    "name": {
+                        "en": "Questions",
+                        "base": "Questions"
+                    },
+                    "uuid": "26f293c6-2589-4154-8824-eceeef5e4a38",
+                    "is_on": true,
+                    "modules": [
+                        243328
+                    ]
+                }
+            ],
+            "on_demand_video": null,
+            "is_on": null,
+            "broadcast_type": "greenroom",
+            "use_different_thumbnails": false,
+            "pre_broadcast_thumbnail": null,
+            "post_broadcast_thumbnail": null,
+            "custom_css": null,
+            "breakout_rooms": null,
+            "replay_on": true,
+            "should_record": false,
+            "opentok_id": null,
+            "opentok_id_issued_timestamp": null,
+            "session_chat_enabled": true,
+            "streaming_options": {
+                "single_stream": false
+            },
+            "current_language": "en",
+            "video_player_controls_settings": {
+                "color_theme": "default"
+            },
+            "reaction_settings": {
+                "enabled": false,
+                "reactions": []
+            },
+            "breakout_room_order": null,
+            "breakout_session_hosts": null,
+            "breakout_session": null,
+            "firesides_hosts": null
+        },
+        {
+            "session": 14483,
+            "channel": 67,
+            "title": {
+                "en": "Fireside 6",
+                "base": "Fireside 6"
+            },
+            "description": null,
+            "tracks": [],
+            "default_language": "en",
+            "languages": [
+                "en"
+            ],
+            "on_demand": false,
+            "timestamp": 1653891722068,
+            "layout": {
+                "withMenu": true,
+                "overlayChat": false
+            },
+            "moderation": null,
+            "end_timestamp": 1653892622068,
+            "uuid": "b9bde38e-dfde-11ec-9746-fdfcbba8566b",
+            "modules": [
+                {
+                    "id": 243335,
+                    "type": 16,
+                    "content": {
+                        "title": {
+                            "en": "Fireside 6",
+                            "base": "Fireside 6",
+                            "changed": ""
+                        },
+                        "description": {
+                            "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                            "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood."
+                        },
+                        "custom_heading": {
+                            "en": "Session Description",
+                            "base": "Session Description"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243336,
+                    "type": 1,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Speakers",
+                            "base": "Speakers"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243337,
+                    "type": 12,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Questions",
+                            "base": "Questions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243338,
+                    "type": 13,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Quizzes",
+                            "base": "Quizzes"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243339,
+                    "type": 14,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Polls",
+                            "base": "Polls"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243340,
+                    "type": 4,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Products",
+                            "base": "Products"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243341,
+                    "type": 8,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Documents",
+                            "base": "Documents"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243342,
+                    "type": 17,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Similar Sessions",
+                            "base": "Similar Sessions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243343,
+                    "type": 10,
+                    "content": null,
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                }
+            ],
+            "video": null,
+            "image": null,
+            "video_duration": 0,
+            "ivs_channel": null,
+            "session_type": "fireside",
+            "module_grouping": [
+                {
+                    "icon": "infoOutline",
+                    "name": {
+                        "en": "Overview",
+                        "base": "Overview"
+                    },
+                    "uuid": "3f728588-7d71-475c-ae3f-e887c1a99dee",
+                    "is_on": true,
+                    "modules": [
+                        243335,
+                        243336,
+                        243340,
+                        243342
+                    ]
+                },
+                {
+                    "icon": "bar-graph",
+                    "name": {
+                        "en": "Polls",
+                        "base": "Polls"
+                    },
+                    "uuid": "e199b3a6-8747-419f-9f48-1e7d979f3326",
+                    "is_on": true,
+                    "modules": [
+                        243338,
+                        243339
+                    ]
+                },
+                {
+                    "icon": "documents",
+                    "name": {
+                        "en": "Documents",
+                        "base": "Documents"
+                    },
+                    "uuid": "53747a97-cfca-467f-9d33-a4679553ebf3",
+                    "is_on": true,
+                    "modules": [
+                        243341
+                    ]
+                },
+                {
+                    "icon": "images",
+                    "name": {
+                        "en": "Questions",
+                        "base": "Questions"
+                    },
+                    "uuid": "d83022a8-98ba-418c-9fb6-0fca926ae023",
+                    "is_on": true,
+                    "modules": [
+                        243337
+                    ]
+                }
+            ],
+            "on_demand_video": null,
+            "is_on": null,
+            "broadcast_type": "fireside",
+            "use_different_thumbnails": false,
+            "pre_broadcast_thumbnail": null,
+            "post_broadcast_thumbnail": null,
+            "custom_css": null,
+            "breakout_rooms": null,
+            "replay_on": true,
+            "should_record": true,
+            "opentok_id": "2_MX40NzQ0MDk3MX5-MTY1Mzg5MDgyMzMxOX4rQnNmWjdUZG54b045S2tlVzROblhyWmp-fg",
+            "opentok_id_issued_timestamp": "2022-05-30T06:07:03.359",
+            "session_chat_enabled": true,
+            "streaming_options": {
+                "single_stream": false
+            },
+            "current_language": "en",
+            "video_player_controls_settings": {
+                "color_theme": "default"
+            },
+            "reaction_settings": {
+                "enabled": false,
+                "reactions": []
+            },
+            "breakout_room_order": null,
+            "breakout_session_hosts": null,
+            "breakout_session": null,
+            "firesides_hosts": [
+                "pradnyan.bhilare@brandlive.com",
+                "brandlive.automation1@gmail.com"
+            ]
+        },
+        {
+            "session": 14484,
+            "channel": 67,
+            "title": {
+                "en": "Breakout Room 7",
+                "base": "Breakout Room 7"
+            },
+            "description": null,
+            "tracks": [],
+            "default_language": "en",
+            "languages": [
+                "en"
+            ],
+            "on_demand": false,
+            "timestamp": 1653891722068,
+            "layout": {
+                "withMenu": true,
+                "overlayChat": false
+            },
+            "moderation": null,
+            "end_timestamp": 1653892622068,
+            "uuid": "b9e3f2d6-dfde-11ec-9746-fdfcbba8566b",
+            "modules": [
+                {
+                    "id": 243344,
+                    "type": 16,
+                    "content": {
+                        "title": {
+                            "en": "Breakout Room 7",
+                            "base": "Breakout Room 7",
+                            "changed": ""
+                        },
+                        "description": {
+                            "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                            "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood."
+                        },
+                        "custom_heading": {
+                            "en": "Session Description",
+                            "base": "Session Description"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243345,
+                    "type": 1,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Speakers",
+                            "base": "Speakers"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243346,
+                    "type": 12,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Questions",
+                            "base": "Questions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243347,
+                    "type": 13,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Quizzes",
+                            "base": "Quizzes"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243348,
+                    "type": 14,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Polls",
+                            "base": "Polls"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243349,
+                    "type": 4,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Products",
+                            "base": "Products"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243350,
+                    "type": 8,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Documents",
+                            "base": "Documents"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243351,
+                    "type": 17,
+                    "content": {
+                        "custom_heading": {
+                            "en": "Similar Sessions",
+                            "base": "Similar Sessions"
+                        }
+                    },
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                },
+                {
+                    "id": 243352,
+                    "type": 10,
+                    "content": null,
+                    "is_on": true,
+                    "content_modules": null,
+                    "is_custom": false,
+                    "styling_overrides": null,
+                    "is_post_register_home_preview": false,
+                    "is_edited": false,
+                    "modules": null
+                }
+            ],
+            "video": null,
+            "image": null,
+            "video_duration": 0,
+            "ivs_channel": null,
+            "session_type": "breakout-rooms",
+            "module_grouping": [
+                {
+                    "icon": "breakoutRooms",
+                    "name": {
+                        "en": "Breakout Rooms",
+                        "base": "Breakout Rooms"
+                    },
+                    "type": "breakout",
+                    "uuid": "87d22f9f-2e0c-4192-abb2-10d0b065c045",
+                    "is_on": true,
+                    "modules": [
+                        1972
+                    ]
+                },
+                {
+                    "icon": "infoOutline",
+                    "name": {
+                        "en": "Overview",
+                        "base": "Overview"
+                    },
+                    "uuid": "7fcd050d-efd0-4dcc-8f30-b03696457fdd",
+                    "is_on": true,
+                    "modules": [
+                        243344,
+                        243345,
+                        243349,
+                        243351
+                    ]
+                },
+                {
+                    "icon": "bar-graph",
+                    "name": {
+                        "en": "Polls",
+                        "base": "Polls"
+                    },
+                    "uuid": "da637df7-b8a6-4da2-a5e7-301a34ff32db",
+                    "is_on": true,
+                    "modules": [
+                        243347,
+                        243348
+                    ]
+                },
+                {
+                    "icon": "documents",
+                    "name": {
+                        "en": "Documents",
+                        "base": "Documents"
+                    },
+                    "uuid": "cb775a01-1cc0-4ec9-885d-f86c789f769e",
+                    "is_on": true,
+                    "modules": [
+                        243350
+                    ]
+                },
+                {
+                    "icon": "images",
+                    "name": {
+                        "en": "Questions",
+                        "base": "Questions"
+                    },
+                    "uuid": "8d78e2fc-e74c-4e08-848e-11937e0e1174",
+                    "is_on": true,
+                    "modules": [
+                        243346
+                    ]
+                }
+            ],
+            "on_demand_video": null,
+            "is_on": null,
+            "broadcast_type": null,
+            "use_different_thumbnails": false,
+            "pre_broadcast_thumbnail": null,
+            "post_broadcast_thumbnail": null,
+            "custom_css": null,
+            "breakout_rooms": [
+                {
+                    "id": 1972,
+                    "uuid": "41653853-12d5-4a86-9e15-653cd7a99b5b",
+                    "description": null,
+                    "type": "interest",
+                    "session": 14484,
+                    "image": "",
+                    "name": "Room1",
+                    "max_users": 15,
+                    "video_settings": {},
+                    "closed": false
+                }
+            ],
+            "replay_on": null,
+            "should_record": false,
+            "opentok_id": null,
+            "opentok_id_issued_timestamp": null,
+            "session_chat_enabled": true,
+            "streaming_options": {
+                "single_stream": false
+            },
+            "current_language": "en",
+            "video_player_controls_settings": {
+                "color_theme": "default"
+            },
+            "reaction_settings": {
+                "enabled": false,
+                "reactions": []
+            },
+            "breakout_room_order": [
+                1972
+            ],
+            "breakout_session_hosts": [
+                {
+                    "session": 14484,
+                    "email": "brandlive.automation1@gmail.com"
+                },
+                {
+                    "session": 14484,
+                    "email": "pradnyan.bhilare@brandlive.com"
+                }
+            ],
+            "breakout_session": {
+                "session": 14484,
+                "create_room_when_full": true,
+                "use_background_image": false,
+                "background_image": null,
+                "use_zoom": false,
+                "banner_image": null
+            },
+            "firesides_hosts": null
+        }
+    ],
+    "url": null,
+    "registration_questions": [
+        {
+            "registration_question": 1,
+            "channel": 0,
+            "name": "First Name",
+            "type": "text",
+            "options": null,
+            "global": true,
+            "persistent": true,
+            "default_value": null,
+            "placeholder": null
+        },
+        {
+            "registration_question": 2,
+            "channel": 0,
+            "name": "Last Name",
+            "type": "text",
+            "options": null,
+            "global": true,
+            "persistent": true,
+            "default_value": null,
+            "placeholder": null
+        },
+        {
+            "registration_question": 3,
+            "channel": 0,
+            "name": "Email Address",
+            "type": "email",
+            "options": null,
+            "global": true,
+            "persistent": true,
+            "default_value": null,
+            "placeholder": null
+        }
+    ],
+    "uuid": "ba0e7ccc-dfde-11ec-9746-fdfcbba8566b",
+    "required_registration_questions": [
+        1,
+        2,
+        3
+    ],
+    "created_date": "2022-05-30T06:07:03.888Z",
+    "registration_steps": [
+        {
+            "isOn": true,
+            "type": "general",
+            "questions": [
+                {
+                    "registration_question": 1,
+                    "channel": 0,
+                    "name": "First Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null,
+                    "placeholder": null
+                },
+                {
+                    "registration_question": 2,
+                    "channel": 0,
+                    "name": "Last Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null,
+                    "placeholder": null
+                },
+                {
+                    "registration_question": 3,
+                    "channel": 0,
+                    "name": "Email Address",
+                    "type": "email",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null,
+                    "placeholder": null
+                }
+            ]
+        },
+        {
+            "isOn": false,
+            "type": "profile",
+            "questions": [
+                {
+                    "registration_question": 6,
+                    "channel": 0,
+                    "name": "Company Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null,
+                    "placeholder": null
+                },
+                {
+                    "registration_question": 4,
+                    "channel": 0,
+                    "name": "Bio",
+                    "type": "textarea",
+                    "options": null,
+                    "global": true,
+                    "persistent": false,
+                    "default_value": null,
+                    "placeholder": null
+                },
+                {
+                    "registration_question": 9,
+                    "channel": 0,
+                    "name": "Fun Fact",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": false,
+                    "default_value": null,
+                    "placeholder": null
+                }
+            ]
+        },
+        {
+            "isOn": false,
+            "type": "avatar"
+        }
+    ],
+    "privacy_policy": null,
+    "terms_id": null,
+    "custom_css": null,
+    "social_sharing": null,
+    "favicon": null,
+    "custom_pages": [],
+    "social_settings": {
+        "profiles": {
+            "isOn": false,
+            "sections": [
+                {
+                    "isOn": true,
+                    "type": 0,
+                    "uuid": "888e8eb7-da52-4650-b857-aa86e1ab1a90",
+                    "title": {
+                        "en": "General Information",
+                        "base": "General Information",
+                        "changed": "true"
+                    },
+                    "edited": false,
+                    "fields": []
+                },
+                {
+                    "isOn": false,
+                    "type": 1,
+                    "uuid": "a11b60a3-6574-40d5-a147-1d02d31cbf7b",
+                    "title": {
+                        "en": "About",
+                        "base": "About",
+                        "changed": "true"
+                    },
+                    "edited": false,
+                    "fields": [
+                        {
+                            "questionKey": 6
+                        },
+                        {
+                            "questionKey": 4
+                        },
+                        {
+                            "questionKey": 9
+                        }
+                    ]
+                },
+                {
+                    "isOn": false,
+                    "type": 2,
+                    "uuid": "45a3e49e-58a0-4924-bec6-0cf52e98b33d",
+                    "title": {
+                        "en": "Topics",
+                        "base": "Topics",
+                        "changed": "true"
+                    },
+                    "edited": false,
+                    "fields": [
+                        {
+                            "questionKey": 17
+                        }
+                    ]
+                }
+            ],
+            "displayType": 0,
+            "displayAvatar": false
+        },
+        "directory": {
+            "isOn": false,
+            "filters": [],
+            "allowFilters": false,
+            "allowBookmarking": false
+        },
+        "messaging": false,
+        "topicGroupChats": false,
+        "eventChatChannels": {
+            "uuid": "cbb90612-596c-4106-87db-62e876910681",
+            "title": "Event Lobby",
+            "created_at": 1653890822068,
+            "group_type": 0,
+            "channelImageUrl": ""
+        }
+    },
+    "playbackUrls": {},
+    "secondaryVideos": {}
+}

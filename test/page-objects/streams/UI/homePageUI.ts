@@ -38,7 +38,10 @@ class HomePageUi extends Page {
     get profilePageButton() {return $(`//div[@class='profile-details-wrapper open ']//a[1]`)}
     get integrationsPageButton() {return $(`//div[@class='profile-details-wrapper open ']/ul/li[1]/a`)}
     get settingsPageButton() {return $(`//div[@class='profile-details-wrapper open ']/ul/li[2]/a`)}
-    
+
+    // Create Event Button
+    get createEventButton() { return $(`//a[@class='create-event']`) }
+
 
     // Page Object Methods
     async navigateToStreamsUrl(path: string) {
@@ -182,6 +185,17 @@ class HomePageUi extends Page {
             }
         } catch (err) {
             err.message = `Error while checking various functions of streams: , ${err.message} `
+            throw err
+        }
+    }
+
+    async clickOnCreateEventButton() {
+        try {
+            await this.click(await this.createEventButton)
+            await browser.pause(2000)
+            reporter.addStep("info", `Clicked on the Create Event button.`)
+        } catch (err) {
+            err.message = `Error clicking to Create Event button: , ${err.message} `
             throw err
         }
     }
