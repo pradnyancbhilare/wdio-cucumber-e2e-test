@@ -7,6 +7,16 @@ import GoogleSearchPage from "../../page-objects/google.search.page"
 import Reqres from "../../utils/api/reqres"
 import cloudflareParameters from "../../utils/cloudflareParameters"
 
+class demo {
+
+    static browserConfig: any
+    constructor(){
+
+    }
+}
+
+export default new demo
+
 Given (/^Google page is opened$/, async function() {
     logger.info(`Opening Google Page... `)
     allure.addStep(`Opening Google Page... `)
@@ -30,6 +40,7 @@ Given (/^Google page is opened$/, async function() {
     console.log(`Streams Url: ${browser.config.Streams_Ui_Host}`)
     // @ts-ignore
     console.log(`Config Values: ${JSON.stringify(browser.config)}`)
+    demo.browserConfig = `${JSON.stringify(browser.config)}`
 
     logger.info(`Google page opened successfully... `)
     allure.addStep(`Google page opened successfully... `)
@@ -72,6 +83,9 @@ Then (/^URL should match (.*)$/, async function(ExpectedURL) {
         let browserUrl = await GoogleSearchPage.retriveBrowserUrl()
         // let url = await browser.getUrl()
         chai.expect(ExpectedURL).to.equal(browserUrl)
+
+        let browserConfig = demo.browserConfig
+        console.log(`>> Browser Config is: ${browserConfig}`)
 
         logger.info(`Matched url successfully... `)
         allure.addStep(`Matched url successfully... `)

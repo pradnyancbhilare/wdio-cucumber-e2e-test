@@ -25,9 +25,12 @@ Scenario: Update Registration Steps to Event
 Scenario: Complete registration live and navigate to sessions
     And Load the landing page using API
     And Fill general info form using API
+    And Get generated page session using API
+    And Validate registration user session using API
     And Fill profile info form using API
-    And Fill avatar form using API
+    And Fill avatar form without ticket using API
     And Validate registration using API
+    And Validate registration user session using API
     And Navigate to On Demand session using API
     And Enter chat at On Demand session using API
     And Get chat at On Demand session using API
@@ -45,26 +48,31 @@ Scenario: Complete registration live and navigate to sessions
 
 Scenario: Navigate to Breakout Room session
     And Navigate to Breakout Room session using API
-    And Get Breakout Room Usage using API
     And Get Breakout Room Ended using API
+    And Get Breakout Room Usage using API
     And Get room opentok test for Breakout Room using API
     And Get opentok session by id for Breakout Room using API
-    #And Get opentok token for Breakout Room by session id using API
     And Get to the breakout session by uuid using API
+    And Get opentok token for Breakout Room by session id using API
+    And Get opentok session by id for Breakout Room using API
+    And Revalidate registration using API
+    And Validate registration user session using API
+    And Get Breakout Room Ended using API
+    And Get Breakout Room Usage using API
 
 Scenario: Navigate to Fireside session
     And Navigate to Fireside session using API
     And Get room opentok test for Fireside using API
     And Get opentok session by id for Fireside using API
-    #And Get opentok token for Fireside by session id using API
+    And Get opentok token for Fireside by session id using API
     And Post broadcast for the Fireside using API
-    #And Access fireside live event using API
-    #And Check broadcast for fireside using API
+    And Access fireside live event using API
+    And Check broadcast for fireside using API
     And Get opentok session by id for Fireside using API 
     And Enter chat at Fireside session using API
     And Get chat at Fireside session using API
     And Start broadcast for the Fireside using API
-    #And Check broadcast for fireside using API
+    And Check broadcast for fireside using API
     And Stop broadcast for the fireside using API
     And Check start action for Fireside using API
     And Check milestone action for Fireside using API

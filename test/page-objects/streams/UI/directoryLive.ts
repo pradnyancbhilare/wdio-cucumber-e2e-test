@@ -17,6 +17,17 @@ class DirectoryLive extends Page {
     get closeProfileDetailsPopUP() { return $(`//*[name()='svg' and @id='icon-close']`) }
     get PopUpView() { return $(`//div[@class='modal medium event-preview']`) }
     get profile() { return $(`//li[contains(@class,'directory-profile-card')][1]`) }
+    get directMessagingChatBubble() { return $(`//div[@class='direct-messaging-main-icon']`) }
+    get eventLobbyChannel() { return $(`//div[text()='Event Lobby']`) }
+    get channelProfile() { return $(`//div[contains(@style,'background-image: url("https://image-resizer.brandlive.com/')]`) }
+    get eventChannels() { return $$(`//div[@class='direct-messaging-group']`) }
+    get sendMessageTextArea() { return $(`//textarea[@class='add-live-comment-textarea']`) }
+    get messageText() { return $(`//div[@class='message-text']`) }
+    get backArrow() { return $(`(//*[name()='svg' and @id='icon-arrow-left'])[2]`) }
+    get filterContainer() { return $(`//div[@class='filter-tag-container']`) }
+    get filterTag() { return $$(`//li[@class='filter-tag']`) }
+    get ProfileCard() { return $(`//li[contains(@class,'directory-profile-card')]`) }
+
 
     async verifyDirectoryTab() {
         try {
@@ -152,6 +163,151 @@ class DirectoryLive extends Page {
             }
         } catch (err) {
             err.message = `Error verifying the As a Page view: , ${err.message} `
+            throw err
+        }
+    }
+
+    /*
+     * verify Direct Messaging Chat bubble
+     */
+    async verifyDirectMessagingChatBubble() {
+        try {
+            if (await this.directMessagingChatBubble.isDisplayed()) {
+                reporter.addStep("info", 'verified the direct messaging chat bubble.')
+            }
+        } catch (err) {
+            err.message = `Error clicking on Event Channel Add button`
+            throw err
+        }
+    }
+
+    /*
+     * Click on the direct mesagig chat bubble
+     */
+    async clickOnDirectMessagingChatBubble() {
+        try {
+            await this.click(await this.directMessagingChatBubble)
+            reporter.addStep("info", 'Clicked on the direct messaging chat bubble.')
+        } catch (err) {
+            err.message = `Error clicking on Direct Messaging chat bubble`
+            throw err
+        }
+    }
+
+    /*
+    * Verify Event lobby default channel in the direct messaging chat bubble
+    */
+    async verifyEventLobbyDefaultChannel() {
+        try {
+            if (await this.eventLobbyChannel.isDisplayed()) {
+                reporter.addStep("info", 'verified the direct messaging event lobby default channel.')
+            }
+        } catch (err) {
+            err.message = `Error verifying direct messaging event lobby default Channel`
+            throw err
+        }
+    }
+
+    /*
+      * Verify the new Events channels and uploaded profile under the chat bubble
+      */
+    async verifyNewEventChannelsUnderChatBubble(newChannelName: string) {
+        try {
+            if (await $(`//div[text()='${newChannelName}']`).isDisplayed()) {
+                if (await this.channelProfile.isDisplayed()) {
+                    reporter.addStep("info", 'Verified the new channel name and uploaded image.')
+                }
+            }
+        } catch (err) {
+            err.message = `Error verifying the new channel and uploaded image.`
+            throw err
+        }
+    }
+
+    /*
+      * Verify the attendees is able to send the messages in Event Channels(Event Loby and new created channel)
+      */
+    async verifyAttendeesAbleToSendMessageInChannels(chatMessage: string) {
+        try {
+            let channels: WebdriverIO.Element[]
+            channels = await this.eventChannels
+            for (let i = 0; i < channels.length; i++) {
+                if (await channels[i].isDisplayed()) {
+                    await this.click(channels[i])
+                    reporter.addStep("info", `Clicked on the ${i} channel:`)
+                    await browser.pause(2000)
+                    await this.typeInto(await this.sendMessageTextArea, chatMessage)
+                    reporter.addStep("info", `Entered the chat message.`)
+                    await (await this.sendMessageTextArea).keys('Enter')
+                    this.verifyChatMessage(chatMessage)
+                    await this.click(await this.backArrow)
+                    reporter.addStep("info", `clicked on the back arrow.`)
+                }
+            }
+        } catch (err) {
+            err.message = `Error verifying the attendees chat message in the events channels.`
+            throw err
+        }
+    }
+
+    /*
+     * Verify chat message sent in the chat box
+     */
+    private async verifyChatMessage(chatMessage: string) {
+        try {
+            if ((await this.messageText.getText()).match(chatMessage)) {
+                reporter.addStep("info", 'Verified the chat message in the channel.')
+            }
+        } catch (err) {
+            err.message = `Error verifying the chat message in the channel.`
+            throw err
+        }
+    }
+
+    /*
+      * Verify the Filter container at live
+      */
+    async verifyFilterContainer() {
+        try {
+            if (await this.filterContainer.isDisplayed()) {
+                reporter.addStep("info", 'Verified the filter container.')
+            }
+        } catch (err) {
+            err.message = `Error verifying filter container.`
+            throw err
+        }
+    }
+
+    /*
+      * Verify the Filter functionality at live
+      */
+    async verifyFilterFunctionality() {
+        try {
+            reporter.addStep("info", 'Verify the user profile is displayed which has an option selected after selecting...')
+            let filter: WebdriverIO.Element[]
+            filter = await this.filterTag
+            for (let i = 0; i < filter.length; i++) {
+                if (await filter[i].isDisplayed()) {
+                    await this.click(filter[0])
+                    reporter.addStep("info", `Selected the First Filter tag.`)
+                    if (await this.ProfileCard.isDisplayed()) {
+                        reporter.addStep("info", `Profile card is displayed which has the question selected.`)
+                        break
+                    }
+                }
+            }
+            reporter.addStep("info", 'Verify the user profile is not displayed which does not have option selected...')
+            for (let i = 1; i < filter.length; i++) {
+                if (await filter[i].isDisplayed()) {
+                    await this.click(filter[0])
+                    reporter.addStep("info", `Selected the all Filter tags.`)
+                }
+            }
+            if (!await this.ProfileCard.isDisplayed()) {
+                reporter.addStep("info", `The profile is not displayed which doesn't have the option selected.`);
+            }
+        } catch (err) {
+            err.message = `Error verifying filter Functionality.`
             throw err
         }
     }

@@ -40,8 +40,14 @@ class HomePageUi extends Page {
     get settingsPageButton() {return $(`//div[@class='profile-details-wrapper open ']/ul/li[2]/a`)}
 
     // Create Event Button
+    get createDropDown() { return $(`//button[@class='create-dropdown']`) }
     get createEventButton() { return $(`//a[@class='create-event']`) }
 
+    // Products Details
+    get productsTab() { return $(`//a[@href='/admin/products']`) }
+
+    // Content Details
+    get contentTab() { return $(`//a[@href='/admin/content/documents/all']`) }
 
     // Page Object Methods
     async navigateToStreamsUrl(path: string) {
@@ -73,7 +79,7 @@ class HomePageUi extends Page {
     async selectChannelForProfile(channelName: string) {
         try {
             await this.click(await this.appChannelButton)
-            await browser.pause(2000)
+            await browser.pause(15000)
             let channelArr: WebdriverIO.Element[]
             channelArr = await this.appChannelListButtons
             for(let i=0; i<channelArr.length; i++){
@@ -191,8 +197,13 @@ class HomePageUi extends Page {
 
     async clickOnCreateEventButton() {
         try {
-            await this.click(await this.createEventButton)
+            if(await this.createDropDown.isDisplayed())
+            await this.click(await this.createDropDown)
             await browser.pause(2000)
+            await this.click(await this.createEventButton)
+            await browser.pause(5000)
+            await browser.refresh()
+            await browser.pause(10000)
             reporter.addStep("info", `Clicked on the Create Event button.`)
         } catch (err) {
             err.message = `Error clicking to Create Event button: , ${err.message} `
@@ -200,5 +211,34 @@ class HomePageUi extends Page {
         }
     }
 
+    /*
+     * Click on the products tab
+     */
+    async clickOnProductsTab() {
+        try {
+            if (await this.productsTab.isDisplayed()) {
+                await this.click(await this.productsTab)
+                reporter.addStep("info", 'Clicked on the Products tab.')
+            } 
+        } catch (err) {
+            err.message = `Error clicking on the products tab: , ${err.message} `
+            throw err
+        }
+    }
+
+    /*
+     * Click on the Content tab
+     */
+    async clickOnContentTab() {
+        try {
+            if (await this.contentTab.isDisplayed()) {
+                await this.click(await this.contentTab)
+                reporter.addStep("info", 'Clicked on the Contents tab.')
+            } 
+        } catch (err) {
+            err.message = `Error clicking on the Contents tab: , ${err.message} `
+            throw err
+        }
+    }
 }
 export default new HomePageUi

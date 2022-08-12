@@ -2,6 +2,15 @@ import { Given, When, Then } from "@cucumber/cucumber";
 import chai from "chai";
 import reporter from "../../../utils/reporter"
 import HomeRestApi from "../../../page-objects/greenroom/restApi/homeRestApi"
+import { random } from "../../../utils/random";
+
+class HomeApi {
+
+    static sessionId: string;
+
+    constructor() {}
+
+}
 
 Given (/^Check producer app access$/, async function(){
     //@ts-ignore
@@ -21,6 +30,10 @@ Given (/^Login to greenroom with (.*)$/, async function(appName: string){
     let payload = `{"email":"${email}", "password":"${password}", "app":"${appName}", "storedTwoFactorEvents":null}`;
     //@ts-ignore
     let response = await HomeRestApi.postLoginToGreenroomWithAppByProducer(browser.config.Greenroom_Api_Host, payload)
+    
+    // Set `sessionId`
+    HomeApi.sessionId = random(10);
+
     reporter.addStep("info", `Login to app by producer... is success.`)
     chai.expect(response.token).to.not.null
 })
@@ -87,11 +100,45 @@ Given (/^Get all events for channel for greenroom$/, async function(){
             }
         }
     }
+    // @ts-ignore
     if(!channelId) throw Error(`The channel id is ${channelId}`)
 
     console.log(`Channel id is: ${channelId}`)
     //@ts-ignore
     let response = await HomeRestApi.getEventsForChannel(browser.config.Greenroom_Api_Host, channelId)
-    chai.expect(response.length).to.greaterThanOrEqual(1)
+    chai.expect(response.body.length).to.greaterThanOrEqual(1)
     reporter.addStep("info", `Get all events for channel... is success.`)
 })
+
+Given (/^Get broadcast check by meeting id$/, async function(){
+    //@ts-ignore
+    let response = await HomeRestApi.getBroadcastCheckByMeetingId(browser.config.Greenroom_Api_Host)
+    chai.expect(response.status).to.equal(200)
+ })
+
+ Given (/^Get greenroom profiles$/, async function(){
+    //@ts-ignore
+    let response = await HomeRestApi.getGreenroomProfiles(browser.config.Greenroom_Api_Host)
+    chai.expect(response.status).to.equal(200)
+ })
+
+ Given (/^Post load teams$/, async function(){
+    let payload = `{
+        "channels":{
+           "events_channels":[
+              
+           ],
+           "events_legacy_channels":[
+              
+           ],
+           "gr_channels":[
+              
+           ]
+        }
+     }`;
+      //@ts-ignore
+    let response = await HomeRestApi.postLoadTeams(browser.config.Greenroom_Api_Host,payload)
+    chai.expect(response.status).to.equal(200)
+ })
+ 
+export default new HomeApi;

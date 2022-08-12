@@ -6,7 +6,7 @@ const pool = createPool({
     //@ts-ignore
     port: browser.config.MySql_DB_Port,
     //@ts-ignore
-    databse: browser.config.MySql_DB_Name,
+    database: browser.config.MySql_DB_Name,
     //@ts-ignore
     user: browser.config.MySql_DB_User,
     //@ts-ignore
@@ -14,15 +14,19 @@ const pool = createPool({
     connectionLimit: 10
 })
 
-async function getMySqlQueryResult(query: string): Promise<any> {
-    pool.query(query, (err,result)=>{
-        if(!err) {
-            console.log(`>> Query Result: ${result}`)
-            return result
-        } else {
-            console.log(`${err.message}`)
-        }
-    })
+
+let getMySqlQueryResult = function(query) {
+	return new Promise(function(resolve, reject) {
+		pool.query(query, (err,result)=>{
+			if(!err) {
+				resolve(result);
+			} else {
+				console.log(`${err.message}`)
+				reject(Error("Query issue"));
+			}
+		})
+	});
 }
 
 export {getMySqlQueryResult}
+

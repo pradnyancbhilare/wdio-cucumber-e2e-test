@@ -11,6 +11,8 @@
         "module":"CommonJS",
         "esModuleInterop":true,
         "resolveJsonModule": true,
-        "suppressExcessPropertyErrors": true
+        "suppressExcessPropertyErrors": true,
+        //"strict": true,
+        //"strictNullChecks": true
     }
 }

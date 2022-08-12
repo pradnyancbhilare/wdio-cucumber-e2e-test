@@ -3,14 +3,24 @@ import chai from "chai";
 import reporter from "../../../utils/reporter"
 import CreateEventRestApi from "../../../page-objects/streams/restApi/createEventRestApi"
 import LiveStreamsRestApi from "../../../page-objects/streams/restApi/liveStreamsRestApi"
+import PeopleRestApi from "../../../page-objects/streams/restApi/peopleRestApi";
+import { createEventJsonFile } from "./createEventApi";
 import * as crypto from "crypto"
 import {v4 as uuidv4} from 'uuid'
-import {getPgQueryResult} from "../../../utils/dbPgSql"
 
-let secretKey: string = `123456789012345678901234567890aa`
+
+let secretKey: string = `5bfa4c0e68dcb9b6e0470f4cac75124c`
 let sessionDetails = {
     sessionUuid: null,
-    sessionId: null
+    sessionId: null,
+    breakoutUuid: null
+}
+
+enum SessionTypesEnum {
+    'On Demand' = 'on-demand',
+    'Broadcast' = 'broadcast',
+    'Breakout Room' = 'breakout-rooms',
+    'Fireside' = 'fireside'
 }
 
 async function encryptNew(plain_text: string, encryptionMethod: string, secret: string, iv: Buffer): Promise<string> {
@@ -48,29 +58,15 @@ async function getSessionDetailsObject(sessionType: string): Promise<any> {
     let generalInfoDetails = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
     let sessionsArr = generalInfoDetails.eventBundle.sessions
 
-    let sessionUuid: string
-    let sessionId: number
+    let session = sessionsArr.find(session => session.session_type === SessionTypesEnum[sessionType]);
+    sessionDetails.sessionUuid = session.uuid
+    sessionDetails.sessionId = session.session
 
-    if(sessionsArr.length >= 1) {
-        for(let ele of sessionsArr) {
-            for(let key in ele) {
-                let keyVal = ele[key]
-                if(key.match('session_type') && keyVal.match('on-demand') && sessionType.match('On Demand')) {
-                    sessionDetails.sessionUuid = ele['uuid']
-                    sessionDetails.sessionId = ele['session']             
-                } else if(key.match('session_type') && keyVal.match('broadcast') && sessionType.match('Broadcast')) {
-                    sessionDetails.sessionUuid = ele['uuid']
-                    sessionDetails.sessionId = ele['session']
-                } else if(key.match('session_type') && keyVal.match('Breakout Room') && sessionType.match('Breakout Room')) {
-                    sessionDetails.sessionUuid = ele['uuid']
-                    sessionDetails.sessionId = ele['session']
-                } else if(key.match('session_type') && keyVal.match('Fireside') && sessionType.match('Fireside')) {
-                    sessionDetails.sessionUuid = ele['uuid']
-                    sessionDetails.sessionId = ele['session']
-                }
-            }
-        }
+    if (session.session_type === SessionTypesEnum['Breakout Room']) {
+        sessionDetails.breakoutUuid = session.breakout_rooms[0].uuid
+        console.log(`Validating Breakout Uuid: ${sessionDetails.breakoutUuid}`)
     }
+
     console.log(`Validating Session Uuid: ${sessionDetails.sessionUuid}`)
     console.log(`Validating Session Id: ${sessionDetails.sessionId}`)
 
@@ -173,9 +169,9 @@ Given (/^Load the landing page using API$/, async function(){
 
     //@ts-ignore
     let response = await LiveStreamsRestApi.getLoadLiveEventUrl(browser.config.Streams_Live_Api_Host, liveHost, eventNamePath)
-    chai.expect(response.status).to.equals(204)
+    //chai.expect(response.status).to.equals(204)
 
-    reporter.addStep("info", `Load the event live... is success.`)
+    reporter.addStep("info", `Load the event live... is success. **************************************************`)
 })
 
 Given (/^Fill general info form using API$/, async function(){
@@ -188,7 +184,12 @@ Given (/^Fill general info form using API$/, async function(){
     let eventNamePath = eventName.replace(/(\ |,|\/|:|\\s)+/g, "-")
     console.log(`Validating Event Path: ${eventNamePath}`)
 
+    const passCodeList = Object.getPrototypeOf(PeopleRestApi).constructor.addNewPasscodeListEmailAndPassRes;
+
     let fields = `{"1":"Pradnyan","2":"Bhilare","3":"pradnyan.bhilare@brandlive.com"}`
+    if(typeof passCodeList !== "undefined"){
+        fields = `{"1":"Pradnyan","2":"Bhilare","3":"pradnyan.bhilare@brandlive.com","10":"${passCodeList.master_passcode}"}`;
+    }
     let source = `https://${channelHost}/${eventNamePath}/en`
     let payload = `{"fields":${fields},"lang":"en","source":"${source}","userCode":null,"timezone":"America/Los_Angeles",
     "isFinalStep":false,"referrer":null,"allQueryParams":null,"action":"signup","hostname":"${channelHost}",
@@ -201,7 +202,48 @@ Given (/^Fill general info form using API$/, async function(){
     chai.expect(response.validSessions).to.not.null
     chai.expect(response.stepsCompleted.general).to.not.null
 
-    reporter.addStep("info", `Fill the general info form... is success.`)
+    reporter.addStep("info", `Fill the general info form... is success. **************************************************`)
+})
+
+Given (/^Get generated page session using API$/, async function(){
+
+    let eventId = await getEventId()
+    console.log(`Validating Event Id: ${eventId}`)
+
+    let generalInfoDetails = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
+    let registrationId = generalInfoDetails.registrationId
+    console.log(`Validating Registration Id: ${registrationId}`)
+
+    //@ts-ignore
+    let response = await LiveStreamsRestApi.getGeneratePageSessionByEventId(browser.config.Streams_Live_Api_Host, eventId, registrationId)
+    chai.expect(response.id).to.not.null
+    chai.expect(response.uuid).to.not.null
+
+    reporter.addStep("info", `Get generated page session... is success. **************************************************`)
+})
+
+Given (/^Validate registration user session using API$/, async function(){
+
+    let eventUuid = await getEventUuid()
+    console.log(`Validating Event Uuid: ${eventUuid}`)
+
+    let generalInfoDetails = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
+    let registrationId = generalInfoDetails.registrationId
+    console.log(`Validating Registration Id: ${registrationId}`)
+
+    let payload = `{"registration_id":"${registrationId}","checkType":"reload"}`
+
+    //@ts-ignore
+    let response = await LiveStreamsRestApi.postValidateRegisteredUserSession(browser.config.Streams_Live_Api_Host, eventUuid, payload)
+
+    const passCodeList = Object.getPrototypeOf(PeopleRestApi).constructor.addNewPasscodeListEmailAndPassRes;
+    if(typeof passCodeList != "undefined"){
+        chai.expect(response.success).to.true
+    } else {
+        chai.expect(response.success).to.false
+    }
+
+    reporter.addStep("info", `Validate registration user session... is success. **************************************************`)
 })
 
 Given (/^Fill profile info form using API$/, async function(){
@@ -225,6 +267,11 @@ Given (/^Fill profile info form using API$/, async function(){
     console.log(`Validating Registration Id: ${registrationId}`)
 
     let fields = `{"1":"Pradnyan","2":"Bhilare","3":"pradnyan.bhilare@brandlive.com","4":"None","6":"Brandlive","9":"None"}`
+
+    const passCodeList = Object.getPrototypeOf(PeopleRestApi).constructor.addNewPasscodeListEmailAndPassRes;
+    if(typeof passCodeList !== "undefined"){
+        fields = `{"1":"Pradnyan","2":"Bhilare","3":"pradnyan.bhilare@brandlive.com","4":"None","6":"Brandlive","9":"None","10":"${passCodeList.master_passcode}"}`;
+    }
     let source = `https://${channelHost}/${eventNamePath}/en`
     let payload = `{"fields":${fields},"lang":"en","source":"${source}","timezone":"America/Los_Angeles", 
     "isFinalStep":false,"allQueryParams":null,"avatar":null,"channel":${channelId},"eventUuid":"${eventUuid}",
@@ -234,10 +281,10 @@ Given (/^Fill profile info form using API$/, async function(){
     let response = await LiveStreamsRestApi.postFillProfileInfo(browser.config.Streams_Live_Api_Host, payload)
     chai.expect(response.token).to.not.null
 
-    reporter.addStep("info", `Fill the profile info form... is success.`)
+    reporter.addStep("info", `Fill the profile info form... is success. **************************************************`)
 })
 
-Given (/^Fill avatar form using API$/, async function(){
+Given (/^Fill avatar form (.*) ticket using API$/, async function(ticket: string){
 
     //@ts-ignore
     let channelHost = browser.config.Channel_Host
@@ -259,15 +306,130 @@ Given (/^Fill avatar form using API$/, async function(){
 
     let fields = `{}`
     let source = `https://${channelHost}/${eventNamePath}/en`
-    let payload = `{"fields":${fields},"lang":"en","source":"${source}","timezone":"America/Los_Angeles", 
-    "isFinalStep":true,"allQueryParams":null,"avatar":null,"channel":${channelId},"eventUuid":"${eventUuid}",
-    "isFinalNonTicketStep":true,"step":"avatar","registrationId":"${registrationId}","event_title":"${eventName}"}`
+    let payload: string
+    if (ticket.includes('out')) {
+        payload = `{"fields":${fields},"lang":"en","source":"${source}","timezone":"America/Los_Angeles", 
+        "isFinalStep":true,"allQueryParams":null,"avatar":null,"channel":${channelId},"eventUuid":"${eventUuid}",
+        "isFinalNonTicketStep":true,"step":"avatar","registrationId":"${registrationId}","event_title":"${eventName}"}`
+    } else {
+        payload = `{"fields":${fields},"lang":"en","source":"${source}","timezone":"America/Los_Angeles", 
+        "isFinalStep":false,"allQueryParams":null,"avatar":null,"channel":${channelId},"eventUuid":"${eventUuid}",
+        "isFinalNonTicketStep":true,"step":"avatar","registrationId":"${registrationId}","event_title":"${eventName}"}`
+    }
 
     //@ts-ignore
     let response = await LiveStreamsRestApi.postFillAvatarInfo(browser.config.Streams_Live_Api_Host, payload)
     chai.expect(response.token).to.not.null
 
-    reporter.addStep("info", `Fill the avatar info form... is success.`)
+    reporter.addStep("info", `Fill the avatar info form... is success. **************************************************`)
+})
+
+Given (/^Make card payment using API$/, async function(){
+
+    //@ts-ignore
+    let channelHost = browser.config.Channel_Host
+    console.log(`Validating Live Host: ${channelHost}`)
+
+    let eventName = await getEventName()
+    console.log(`Validating Event Name: ${eventName}`)
+    let eventNamePath = eventName.replace(/(\ |,|\/|:|\\s)+/g, "-")
+    console.log(`Validating Event Path: ${eventNamePath}`)
+
+    let eventUuid = await getEventUuid()
+    console.log(`Validating Event Uuid: ${eventUuid}`)
+    let channelId = await getChannelId()
+    console.log(`Validating Channel Id: ${channelId}`)
+
+    let generalInfoDetails = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
+    let registrationId = generalInfoDetails.registrationId
+    console.log(`Validating Registration Id: ${registrationId}`)
+
+    //@ts-ignore
+    let response = await CreateEventRestApi.getEventDetailsByUuid(browser.config.Streams_Api_Host, eventUuid)
+    await createEventJsonFile(response)
+    let ticketUuid = response.registration_steps[3].ticketing[0].uuid
+    let ticketPrice = response.registration_steps[3].ticketing[0].prices[0].price
+    let ticketCurrency = response.registration_steps[3].ticketing[0].prices[0].currency
+    let ticketMultiplier = response.registration_steps[3].ticketing[0].prices[0].multiplier
+    console.log(`ticket >>> ${ticketUuid}, ${ticketPrice}, ${ticketCurrency}, ${ticketMultiplier}`)
+
+    //@ts-ignore
+    let host = browser.config.Streams_Live_Api_Host
+    let bl_profile_id: number
+    let profile_uuid: string
+    let created_date:string
+    if(host.includes('qa')) {
+        bl_profile_id = 50689 //51286
+        profile_uuid = '706fe14e-5df9-11ec-925f-2585f91f0d28'
+        created_date = '2021-08-04T03:36:04.213Z'
+    } else {
+        bl_profile_id = 50729
+        profile_uuid = 'caffb3d0-6f44-11ec-bb70-eda399980158'
+        created_date = '2021-08-19T18:08:43.768Z'
+    }
+
+    let source = `https://${channelHost}/${eventNamePath}/en`
+
+    let options = `{
+        "channel_id":${channelId},
+        "event_uuid":"${eventUuid}",
+        "lang":"en",
+        "profile":{
+           "bl_profile":${bl_profile_id},
+           "email":"pradnyan.bhilare@brandlive.com",
+           "created_date":"${created_date}",
+           "modified_date":null,
+           "profile":{
+              "${channelId}":{
+                 "1":"Pradnyan",
+                 "2":"Bhilare",
+                 "3":"pradnyan.bhilare@brandlive.com",
+                 "4":"None",
+                 "6":"Brandlive",
+                 "9":"None",
+                 "verified":true
+              }
+           },
+           "verified":false,
+           "locations":null,
+           "saml_id":null,
+           "bookmarked_profiles":null,
+           "uuid":"${profile_uuid}",
+           "blocked_profiles":null,
+           "currency":"USD",
+           "exp":4812224693,
+           "iat":1658624693
+        },
+        "registration_uuid":"${registrationId}",
+        "source":"${source}",
+        "timezone":"America/Los_Angeles"
+     }`
+    let data = `{
+        "ticket":"${ticketUuid}",
+        "ticketPrice":{
+           "price":${ticketPrice},
+           "currency":"${ticketCurrency}",
+           "multiplier":${ticketMultiplier}
+        }
+     }`
+
+    let payload = `{"options":${options}, "data":${data}}`
+
+    //@ts-ignore
+    response = await LiveStreamsRestApi.postCardPaymentIntent(browser.config.Streams_Live_Api_Host, payload)
+    chai.expect(response.clientSecret).to.not.null
+
+    let clientSecret = response.clientSecret
+    let secret = clientSecret.split('_secret_')
+    console.log(`Client Secret >> ${clientSecret}`)
+    console.log(`Path Var >> ${secret[0]}`)
+    payload = `"pathVar": "${secret[0]}", "email": "pradnyan.bhilare@brandlive.com", "clientSecret": "${clientSecret}"`
+
+    //@ts-ignore
+    //response = await LiveStreamsRestApi.postCardPaymentConfirmation(browser.config.Streams_Live_Api_Host, payload)
+    //chai.expect(response).to.not.null
+
+    reporter.addStep("info", `Make card payment ... is success. **************************************************`)
 })
 
 Given (/^Validate registration using API$/, async function(){
@@ -300,11 +462,34 @@ Given (/^Validate registration using API$/, async function(){
     // chai.expect(ReregisterCheckRes.stepsCompleted.general).to.not.null
     // chai.expect(ReregisterCheckRes.stepsCompleted.profile).to.not.null
 
-    reporter.addStep("info", `Validate registration... is success.`)
+    reporter.addStep("info", `Validate registration... is success. **************************************************`)
+})
+
+Given (/^Revalidate registration using API$/, async function(){
+
+    let eventUuid = await getEventUuid()
+    console.log(`Validating Event Uuid: ${eventUuid}`)
+
+    let generalInfoDetails = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
+    let registrationId = generalInfoDetails.registrationId
+    console.log(`Validating Registration Id: ${registrationId}`)
+
+    let code = await encrypt(`${registrationId}/${eventUuid}`)
+
+    let payload = `{"registration_id":"${registrationId}","userCode":"${code}"}`
+
+    //@ts-ignore
+    let ValidateRegistrationRes = await LiveStreamsRestApi.postValidateRegistration(browser.config.Streams_Live_Api_Host, eventUuid, payload)
+    chai.expect(ValidateRegistrationRes.registrationId).to.not.null
+    chai.expect(ValidateRegistrationRes.token).to.not.null
+    chai.expect(ValidateRegistrationRes.validSessions).to.not.null
+    chai.expect(ValidateRegistrationRes.stepsCompleted.general).to.not.null
+    chai.expect(ValidateRegistrationRes.stepsCompleted.profile).to.not.null
+
+    reporter.addStep("info", `Revalidate registration... is success. **************************************************`)
 })
 
 Given (/^Navigate to (.*) session using API$/, async function(sessionType: string){
-
     let generalInfoRes = Object.getPrototypeOf(LiveStreamsRestApi).constructor.postFillGeneralInfoRes
     let registrationId = generalInfoRes.registrationId
     console.log(`Validating Registration Id: ${registrationId}`)
@@ -329,7 +514,7 @@ Given (/^Navigate to (.*) session using API$/, async function(sessionType: strin
     console.log(`>> ID: ${res.id}`)
     console.log(`>> UUID: ${res.uuid}`)
 
-    reporter.addStep("info", `Navigate to ${sessionType} session... is success.`)
+    reporter.addStep("info", `Navigate to ${sessionType} session... is success. **************************************************`)
 })
 
 Given (/^Enter chat at (.*) session using API$/, async function(sessionType: string){
@@ -381,7 +566,7 @@ Given (/^Enter chat at (.*) session using API$/, async function(sessionType: str
     }
     chai.expect(res.comment).to.equal('Hello World')
 
-    reporter.addStep("info", `Enter chat for ${sessionType}... is success.`)
+    reporter.addStep("info", `Enter chat for ${sessionType}... is success. **************************************************`)
 })
 
 Given (/^Get chat at (.*) session using API$/, async function(sessionType: string){
@@ -403,7 +588,7 @@ Given (/^Get chat at (.*) session using API$/, async function(sessionType: strin
     }
     chai.expect(res.length).to.greaterThan(0)
 
-    reporter.addStep("info", `Get chat messages for ${sessionType} session... is success.`)
+    reporter.addStep("info", `Get chat messages for ${sessionType} session... is success. **************************************************`)
 })
 
 Given (/^Get questions at (.*) session using API$/, async function(sessionType: string){
@@ -420,7 +605,7 @@ Given (/^Get questions at (.*) session using API$/, async function(sessionType: 
     }
     chai.expect(res.questions.length).to.greaterThan(0)
 
-    reporter.addStep("info", `Get questions for ${sessionType} session... is success.`)
+    reporter.addStep("info", `Get questions for ${sessionType} session... is success. **************************************************`)
 })
 
 Given (/^Enter question at (.*) session using API$/, async function(sessionType: string){
@@ -450,7 +635,7 @@ Given (/^Enter question at (.*) session using API$/, async function(sessionType:
     }
     chai.expect(res.question).to.equal('Question?')
 
-    reporter.addStep("info", `Enter question for ${sessionType}... is success.`)
+    reporter.addStep("info", `Enter question for ${sessionType}... is success. **************************************************`)
 })
 
 Given (/^Get answers by question id at (.*) session using API$/, async function(sessionType: string){
@@ -477,7 +662,7 @@ Given (/^Get answers by question id at (.*) session using API$/, async function(
     }
     chai.expect(res.comments.length).to.greaterThan(0)
 
-    reporter.addStep("info", `Get comments for ${sessionType} session... is success.`)
+    reporter.addStep("info", `Get comments for ${sessionType} session... is success. **************************************************`)
 })
 
 Given (/^Enter answer at (.*) session using API$/, async function(sessionType: string){
@@ -519,7 +704,7 @@ Given (/^Enter answer at (.*) session using API$/, async function(sessionType: s
     }
     chai.expect(res.comment).to.equal('Answer')
 
-    reporter.addStep("info", `Enter answer for ${sessionType}... is success.`)
+    reporter.addStep("info", `Enter answer for ${sessionType}... is success. **************************************************`)
 })
 
 Given (/^Get Breakout Room Usage using API$/, async function(){
@@ -530,7 +715,7 @@ Given (/^Get Breakout Room Usage using API$/, async function(){
     let response = await LiveStreamsRestApi.getBreakoutRoomUsage(browser.config.Streams_Live_Api_Host, sessionDetail.sessionUuid)
     //chai.expect(response).to.equal({})
 
-    reporter.addStep("info", `Get Breakout Room session Usage... is success.`)
+    reporter.addStep("info", `Get Breakout Room session Usage... is success. **************************************************`)
 })
 
 Given (/^Get Breakout Room Ended using API$/, async function(){
@@ -541,7 +726,7 @@ Given (/^Get Breakout Room Ended using API$/, async function(){
     let response = await LiveStreamsRestApi.getBreakoutRoomEnded(browser.config.Streams_Live_Api_Host, sessionDetail.sessionUuid)
     //chai.expect(response).to.equal({})
 
-    reporter.addStep("info", `Get Breakout Room session ended... is success.`)
+    reporter.addStep("info", `Get Breakout Room session ended... is success. **************************************************`)
 })
 
 Given (/^Get room opentok test for (.*) using API$/, async function(sessionType: string){
@@ -557,7 +742,7 @@ Given (/^Get room opentok test for (.*) using API$/, async function(sessionType:
     chai.expect(res.token).to.not.null
     chai.expect(res.sessionId).to.not.null
 
-    reporter.addStep("info", `Get room opentok test... is success.`)
+    reporter.addStep("info", `Get room opentok test... is success. **************************************************`)
 })
 
 Given (/^Get opentok session by id for (.*) using API$/, async function(sessionType: string){
@@ -573,7 +758,7 @@ Given (/^Get opentok session by id for (.*) using API$/, async function(sessionT
 
     let response = await LiveStreamsRestApi.getOpentokSessionById(sessionId, sessionType)
 
-    reporter.addStep("info", `Get opentok session by id... is success.`)
+    reporter.addStep("info", `Get opentok session by id... is success. **************************************************`)
 })
 
 Given (/^Get opentok token for (.*) by session id using API$/, async function(sessionType: string){
@@ -597,21 +782,17 @@ Given (/^Get opentok token for (.*) by session id using API$/, async function(se
     }
     chai.expect(resp.token).to.not.null
 
-    reporter.addStep("info", `Get opentok token by session id... is success.`)
+    reporter.addStep("info", `Get opentok token by session id... is success. **************************************************`)
 })
 
 Given (/^Get to the breakout session by uuid using API$/, async function(){
-
-    let navigateToSession = Object.getPrototypeOf(LiveStreamsRestApi).constructor.getNavigateToSessionRes
-    let res = JSON.parse(navigateToSession.get('Breakout Room'))
-
     let sessionDetail = await getSessionDetailsObject('Breakout Room')
 
     //@ts-ignore
-    let response = await LiveStreamsRestApi.getBreakoutRoomByUuid(browser.config.Streams_Live_Api_Host, sessionDetail.sessionUuid, res.uuid)
+    let response = await LiveStreamsRestApi.getBreakoutRoomByUuid(browser.config.Streams_Live_Api_Host, sessionDetail.sessionUuid, sessionDetail.breakoutUuid)
     //chai.expect(response.token).to.not.null
 
-    reporter.addStep("info", `Get to the breakout session by uuid... is success.`)
+    reporter.addStep("info", `Get to the breakout session by uuid... is success. **************************************************`)
 })
 
 Given (/^Post broadcast for the Fireside using API$/, async function(){
@@ -623,7 +804,7 @@ Given (/^Post broadcast for the Fireside using API$/, async function(){
     let response = await LiveStreamsRestApi.postBroadcastAtFireside(browser.config.Streams_Api_Host, sessionDetail.sessionUuid, payload)
     chai.expect(response.current_state).to.equal('starting_up')
 
-    reporter.addStep("info", `Post broadcast for the Fireside... is success.`)
+    reporter.addStep("info", `Post broadcast for the Fireside... is success. **************************************************`)
 })
 
 Given (/^Access fireside live event using API$/, async function(){
@@ -634,7 +815,7 @@ Given (/^Access fireside live event using API$/, async function(){
     let response = await LiveStreamsRestApi.getFiresideLiveEventAccess(browser.config.Streams_Api_Host, sessionDetail.sessionUuid)
     //chai.expect(response.token).to.not.null
 
-    reporter.addStep("info", `Post broadcast for the Fireside... is success.`)
+    reporter.addStep("info", `Post broadcast for the Fireside... is success. **************************************************`)
 })
 
 Given (/^Check broadcast for fireside using API$/, async function(){
@@ -644,9 +825,9 @@ Given (/^Check broadcast for fireside using API$/, async function(){
 
     //@ts-ignore
     let response = await LiveStreamsRestApi.putBroadcastAtFiresideAlive(browser.config.Streams_Api_Host, sessionDetail.sessionUuid, payload)
-    //chai.expect(response.current_state).to.equal('starting_up')
+    chai.expect(response).to.equal('OK')
 
-    reporter.addStep("info", `Put or check broadcast for the Fireside... is success.`)
+    reporter.addStep("info", `Put or check broadcast for the Fireside... is success. **************************************************`)
 })
 
 Given (/^Start broadcast for the Fireside using API$/, async function(){
@@ -656,9 +837,9 @@ Given (/^Start broadcast for the Fireside using API$/, async function(){
 
     //@ts-ignore
     let response = await LiveStreamsRestApi.patchBroadcastAtFiresideStart(browser.config.Streams_Api_Host, sessionDetail.sessionUuid, payload)
-    //chai.expect(response.current_state).to.equal('starting_up')
+    chai.expect(response.current_state).to.equal('broadcast_starting')
 
-    reporter.addStep("info", `Start broadcast for the Fireside... is success.`)
+    reporter.addStep("info", `Start broadcast for the Fireside... is success. **************************************************`)
 
 })
 
@@ -669,9 +850,9 @@ Given (/^Stop broadcast for the fireside using API$/, async function(){
 
     //@ts-ignore
     let response = await LiveStreamsRestApi.patchBroadcastAtFiresideStop(browser.config.Streams_Api_Host, sessionDetail.sessionUuid, payload)
-    //chai.expect(response.current_state).to.equal('starting_up')
+    chai.expect(response.current_state).to.equal('broadcast_stopped')
 
-    reporter.addStep("info", `Stop broadcast for the Fireside... is success.`)
+    reporter.addStep("info", `Stop broadcast for the Fireside... is success. **************************************************`)
 })
 
 Given (/^Check start action for Fireside using API$/, async function(){
@@ -719,7 +900,7 @@ Given (/^Check start action for Fireside using API$/, async function(){
     let response = await LiveStreamsRestApi.postFiresideActions(browser.config.Streams_Live_Api_Host, payload)
     //chai.expect(response).to.equal({})
 
-    reporter.addStep("info", `Start action... is success.`)
+    reporter.addStep("info", `Start action... is success. **************************************************`)
 })
 
 Given (/^Check milestone action for Fireside using API$/, async function(){
@@ -778,7 +959,7 @@ Given (/^Check milestone action for Fireside using API$/, async function(){
     let response = await LiveStreamsRestApi.postFiresideActions(browser.config.Streams_Live_Api_Host, payload)
     //chai.expect(response).to.equal({})
 
-    reporter.addStep("info", `Milestone action... is success.`)
+    reporter.addStep("info", `Milestone action... is success. **************************************************`)
 
 })
 
@@ -827,5 +1008,34 @@ Given (/^Check end action for Fireside using API$/, async function(){
     let response = await LiveStreamsRestApi.postFiresideActions(browser.config.Streams_Live_Api_Host, payload)
     //chai.expect(response).to.equal({})
 
-    reporter.addStep("info", `End action... is success.`)
+    reporter.addStep("info", `End action... is success. **************************************************`)
+})
+
+Given (/^Update end time for session$/, async function(){
+    let navigateToSessionRes = Object.getPrototypeOf(LiveStreamsRestApi).constructor.getNavigateToSessionRes
+    console.log(`>> Response of navigate to session: ${JSON.stringify(navigateToSessionRes.get('On Demand'))}`)
+
+    let res = JSON.parse(navigateToSessionRes.get('On Demand'))
+    let uuid = res.uuid
+
+    let payload = `{"uuid":"${uuid}"}`
+
+    //@ts-ignore
+    let response = await LiveStreamsRestApi.updateEndTime(browser.config.Streams_Live_Api_Host, payload)
+    chai.expect(response.body).to.not.null
+    reporter.addStep("info", `Updated end time... is success.`)
+})
+
+Given (/^Update page session end time$/, async function(){
+    let generatePageSessionRes = Object.getPrototypeOf(LiveStreamsRestApi).constructor.getGeneratePageSessionByEventIdRes
+    console.log(`>> Response of generate page session: ${JSON.stringify(generatePageSessionRes)}`)
+
+    let uuid = generatePageSessionRes.uuid
+
+    let payload = `{"uuid":"${uuid}"}`
+
+    //@ts-ignore
+    let response = await LiveStreamsRestApi.updatePageSessionEndTime(browser.config.Streams_Live_Api_Host, payload)
+    chai.expect(response.body).to.not.null
+    reporter.addStep("info", `Updated page session end time... is success.`)
 })

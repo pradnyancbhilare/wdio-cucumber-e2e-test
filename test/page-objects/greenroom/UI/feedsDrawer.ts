@@ -10,6 +10,9 @@ class FeedsDrawer extends Page {
     get feedsTab(){return $(`//div[@class='right-drawer-menu non-highlight-section']//div[1]//div[1]`)}
     get unmuteAll(){return $(`//button[@class='mute-button padding-medium background-lighter round text-white active']`)}
     get muteAll(){return $(`//button[@class='mute-button padding-medium background-lighter round text-white']`)}
+    get feedsToDrag(){return $(`//div[@data-rbd-droppable-id='presenter-feeds-undroppable-0']`)}
+    get dropFeed(){return $(`//div[@class='video-container-presenter first']`)}
+
 
     async openFeedsTab() {
         try {
@@ -35,6 +38,17 @@ class FeedsDrawer extends Page {
         try {
             await this.click(await this.muteAll)
             await browser.pause(1000)
+        } catch (err) {
+            err.message=`Error when muting all users`
+            throw err
+        }
+    }
+
+    async dragAndDropFeedToCanvas() {
+        try {
+            await (await this.dropFeed).waitForDisplayed()
+            await ((await this.feedsToDrag).dragAndDrop(await this.dropFeed,{duration:6000}))
+            await browser.pause(10000)
         } catch (err) {
             err.message=`Error when muting all users`
             throw err

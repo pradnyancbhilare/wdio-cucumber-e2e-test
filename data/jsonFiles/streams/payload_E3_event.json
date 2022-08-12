@@ -1,46 +1,46 @@
 {
-    "event": 10571,
-    "channel": 67,
+    "event": 4232,
+    "channel": 101287,
     "status": 2,
     "template": {
-        "template": 2,
-        "name": "Studio 54",
-        "description": "Display your works of art: Studio 54's minimalistic look highlights your assets beautifully, allowing your unique content to pop against its clean white canvas",
-        "preview_image": "https://assets.brandnot.live/assets/studio-54-preview.png",
+        "template": 1,
+        "name": "Apollo",
+        "description": "Create a solid first impression: Apollo projects dependability and security, perfect for more professional occasions.",
+        "preview_image": "https://assets.brandnot.live/assets/apollo-preview.png",
         "channel": 0,
         "properties": {
             "design": {
-                "font": 35,
-                "colors": 70
-            }
+                "font": 34,
+                "colors": 69
+            },
+            "registrationImage": "https://brandlive-assets.s3-us-west-2.amazonaws.com/wycoff-registration-image.png"
         }
     },
-    "name": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+    "name": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
     "settings": {
         "email": {
-            "hideBrandliveLogo": false,
             "colors": {
                 "channel": 0,
                 "status": 1,
                 "archived": false,
                 "base_language": "en",
                 "created_by": 5546732,
-                "created_at": "2021-03-17T21:39:41.322Z",
+                "created_at": "2021-03-17T21:37:40.726Z",
                 "modified_by": null,
                 "modified_at": null,
-                "color_pack": 70,
-                "title": "Bold",
+                "color_pack": 69,
+                "title": "Classic",
                 "colors": {
                     "accentColor": [
-                        "#1A1A1A",
+                        "#3456FF",
                         1
                     ],
                     "customColor0": [
-                        "#1A1A1A",
+                        "#3456FF",
                         0.1
                     ],
                     "bodyTextColor": [
-                        "#1A1A1A",
+                        "#081543",
                         1
                     ],
                     "containerColor": [
@@ -48,24 +48,25 @@
                         1
                     ],
                     "backgroundColor": [
-                        "#F8F9FB",
+                        "#F5F7FF",
                         1
                     ],
                     "headingTextColor": [
-                        "#1A1A1A",
+                        "#FFFFFF",
                         1
                     ],
                     "secondaryAccentColor": [
-                        "#18D158",
+                        "#FF8164",
                         1
                     ],
                     "secondaryBackgroundColor": [
-                        "#1A1A1A",
+                        "#0E2B89",
                         1
                     ]
                 },
-                "module_id": 28800
-            }
+                "module_id": 28799
+            },
+            "hideBrandliveLogo": false
         },
         "design": {
             "font": {
@@ -74,17 +75,17 @@
                 "archived": false,
                 "base_language": "en",
                 "created_by": 5546732,
-                "created_at": "2021-03-17T23:25:32.475Z",
+                "created_at": "2021-03-17T23:23:58.129Z",
                 "modified_by": null,
                 "modified_at": null,
-                "font_pack": 35,
-                "title": "Source Serif Pro & Poppins",
+                "font_pack": 34,
+                "title": "Inter & Inter",
                 "description": "Select fonts that share an overarching theme and have a pleasing contrast.",
-                "heading_url": "https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap",
-                "heading_name": "Source Serif Pro",
-                "body_url": "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap",
-                "body_name": "Poppins",
-                "module_id": 28803
+                "heading_url": "https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap",
+                "heading_name": "Inter",
+                "body_url": "https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&display=swap",
+                "body_name": "Inter",
+                "module_id": 28802
             },
             "colors": {
                 "channel": 0,
@@ -92,22 +93,22 @@
                 "archived": false,
                 "base_language": "en",
                 "created_by": 5546732,
-                "created_at": "2021-03-17T21:39:41.322Z",
+                "created_at": "2021-03-17T21:37:40.726Z",
                 "modified_by": null,
                 "modified_at": null,
-                "color_pack": 70,
-                "title": "Bold",
+                "color_pack": 69,
+                "title": "Classic",
                 "colors": {
                     "accentColor": [
-                        "#1A1A1A",
+                        "#3456FF",
                         1
                     ],
                     "customColor0": [
-                        "#1A1A1A",
+                        "#3456FF",
                         0.1
                     ],
                     "bodyTextColor": [
-                        "#1A1A1A",
+                        "#081543",
                         1
                     ],
                     "containerColor": [
@@ -115,32 +116,32 @@
                         1
                     ],
                     "backgroundColor": [
-                        "#F8F9FB",
+                        "#F5F7FF",
                         1
                     ],
                     "headingTextColor": [
-                        "#1A1A1A",
+                        "#FFFFFF",
                         1
                     ],
                     "secondaryAccentColor": [
-                        "#18D158",
+                        "#FF8164",
                         1
                     ],
                     "secondaryBackgroundColor": [
-                        "#1A1A1A",
+                        "#0E2B89",
                         1
                     ]
                 },
-                "module_id": 28800
+                "module_id": 28799
             }
         },
         "content_editor": "quill"
     },
     "registration_settings": {
-        "type": 0,
+        "type": 2,
         "title": {
-            "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
-            "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+            "en": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
+            "base": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
             "changed": ""
         },
         "description": {
@@ -150,18 +151,43 @@
         },
         "enableSteps": false,
         "enableSocial": false,
-        "requirements": [],
+        "requirements": {
+            "3": [
+                {
+                    "type": 2,
+                    "passcodeList": [
+                        2257
+                    ],
+                    "gatedSessions": [
+                        7536,
+                        7537,
+                        7538,
+                        7539
+                    ]
+                }
+            ]
+        },
         "enableRecaptcha": false,
         "sessionReminders": true,
         "blockedDomainEmails": null,
+        "customPasscodeLabel": {
+            "en": "",
+            "base": "",
+            "changed": ""
+        },
         "sendEmailConfirmation": true,
         "postEventFeedbackSurvey": true,
-        "registrationConfirmation": false
+        "registrationConfirmation": true,
+        "customRejectedPasscodeMessage": {
+            "en": "",
+            "base": "",
+            "changed": ""
+        }
     },
     "registration_on": true,
     "homepage": {
-        "homepage": 9856,
-        "channel": 67,
+        "homepage": 3873,
+        "channel": 101287,
         "header": {
             "logo": null,
             "layout": "center",
@@ -170,33 +196,36 @@
                     "type": 0,
                     "content": {
                         "isOn": true,
-                        "section_module_id": 243356
+                        "section_module_id": 85859
                     },
                     "button_name": {
                         "en": "About",
-                        "base": "About"
+                        "base": "About",
+                        "changed": ""
                     }
                 },
                 {
                     "type": 0,
                     "content": {
                         "isOn": true,
-                        "section_module_id": 243354
+                        "section_module_id": 85857
                     },
                     "button_name": {
                         "en": "Speakers",
-                        "base": "Speakers"
+                        "base": "Speakers",
+                        "changed": ""
                     }
                 },
                 {
                     "type": 0,
                     "content": {
                         "isOn": true,
-                        "section_module_id": 243355
+                        "section_module_id": 85858
                     },
                     "button_name": {
                         "en": "Agenda",
-                        "base": "Agenda"
+                        "base": "Agenda",
+                        "changed": ""
                     }
                 }
             ],
@@ -209,7 +238,8 @@
                 },
                 "button_name": {
                     "en": "Registration",
-                    "base": "Registration"
+                    "base": "Registration",
+                    "changed": ""
                 }
             }
         },
@@ -225,7 +255,8 @@
                     },
                     "button_name": {
                         "en": "Terms and Conditions",
-                        "base": "Terms and Conditions"
+                        "base": "Terms and Conditions",
+                        "changed": ""
                     }
                 },
                 {
@@ -236,7 +267,8 @@
                     },
                     "button_name": {
                         "en": "Privacy Policy",
-                        "base": "Privacy Policy"
+                        "base": "Privacy Policy",
+                        "changed": ""
                     }
                 }
             ]
@@ -244,13 +276,13 @@
         "use_footer": true,
         "modules": [
             {
-                "id": 243353,
+                "id": 85856,
                 "type": 0,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Main_Banner-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-Speakers-default_image.jpeg",
                     "title": {
-                        "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
-                        "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "en": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
+                        "base": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
                         "changed": ""
                     },
                     "description": {
@@ -267,7 +299,8 @@
                         },
                         "button_name": {
                             "en": "Button text",
-                            "base": "Button text"
+                            "base": "Button text",
+                            "changed": ""
                         }
                     },
                     "originalImage": null
@@ -281,7 +314,7 @@
                 "modules": null
             },
             {
-                "id": 243354,
+                "id": 85857,
                 "type": 1,
                 "content": {
                     "title": {
@@ -311,7 +344,7 @@
                 "modules": null
             },
             {
-                "id": 243355,
+                "id": 85858,
                 "type": 2,
                 "content": {
                     "title": {
@@ -340,10 +373,10 @@
                 "modules": null
             },
             {
-                "id": 243356,
+                "id": 85859,
                 "type": 3,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-about-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-about-default_image.jpeg",
                     "title": {
                         "en": "About the Venue",
                         "base": "About the Venue",
@@ -371,7 +404,7 @@
                 "modules": null
             },
             {
-                "id": 243357,
+                "id": 85860,
                 "type": 4,
                 "content": {
                     "title": {
@@ -400,7 +433,7 @@
                 "modules": null
             },
             {
-                "id": 243358,
+                "id": 85861,
                 "type": 5,
                 "content": {
                     "title": {
@@ -429,7 +462,7 @@
                 "modules": null
             },
             {
-                "id": 243359,
+                "id": 85862,
                 "type": 6,
                 "content": {
                     "title": {
@@ -458,10 +491,10 @@
                 "modules": null
             },
             {
-                "id": 243360,
+                "id": 85863,
                 "type": 7,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Call_Out-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-Call_Out-default_image.jpeg",
                     "title": {
                         "en": "Title is king, content is queen",
                         "base": "Title is king, content is queen",
@@ -480,7 +513,8 @@
                         },
                         "button_name": {
                             "en": "Register now, it's free",
-                            "base": "Register now, it's free"
+                            "base": "Register now, it's free",
+                            "changed": ""
                         }
                     }
                 },
@@ -493,24 +527,26 @@
                 "modules": null
             }
         ],
-        "uuid": "ba01c504-dfde-11ec-9746-fdfcbba8566b",
+        "uuid": "049ff5fa-13b9-11ed-8fb0-1f2accdf2955",
         "event_main_nav_items": [
             {
                 "name": "Home",
-                "uuid": "e983f21f-60f9-4558-90c1-0115b6749b83",
+                "uuid": "484492ab-0b99-4b90-bd7a-06aa5a84603c",
                 "is_on": true,
                 "custom_name": {
                     "en": "Home",
-                    "base": "Home"
+                    "base": "Home",
+                    "changed": ""
                 }
             },
             {
                 "name": "Sessions",
-                "uuid": "9009f3eb-922f-47d5-9d51-822a120c0766",
+                "uuid": "fd536599-5ccd-49bd-a5bc-b5d6fafa0f65",
                 "is_on": true,
                 "custom_name": {
                     "en": "Sessions",
-                    "base": "Sessions"
+                    "base": "Sessions",
+                    "changed": ""
                 }
             }
         ],
@@ -518,13 +554,13 @@
         "post_register_preview_modules": null,
         "post_register_home_modules": [
             {
-                "id": 243361,
+                "id": 85864,
                 "type": 0,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Main_Banner-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-Speakers-default_image.jpeg",
                     "title": {
-                        "en": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
-                        "base": "Automation template 2 Event 179 5/29/2022, 11:07:01 PM",
+                        "en": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
+                        "base": "Automation template 1 Event 767 8/3/2022, 10:48:06 PM",
                         "changed": ""
                     },
                     "description": {
@@ -541,7 +577,8 @@
                         },
                         "button_name": {
                             "en": "Button text",
-                            "base": "Button text"
+                            "base": "Button text",
+                            "changed": ""
                         }
                     },
                     "originalImage": null
@@ -555,7 +592,7 @@
                 "modules": null
             },
             {
-                "id": 243363,
+                "id": 85866,
                 "type": 2,
                 "content": {
                     "title": {
@@ -584,7 +621,7 @@
                 "modules": null
             },
             {
-                "id": 243362,
+                "id": 85865,
                 "type": 1,
                 "content": {
                     "title": {
@@ -614,10 +651,10 @@
                 "modules": null
             },
             {
-                "id": 243364,
+                "id": 85867,
                 "type": 3,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-about-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-about-default_image.jpeg",
                     "title": {
                         "en": "About the Venue",
                         "base": "About the Venue",
@@ -645,7 +682,7 @@
                 "modules": null
             },
             {
-                "id": 243365,
+                "id": 85868,
                 "type": 4,
                 "content": {
                     "title": {
@@ -674,7 +711,7 @@
                 "modules": null
             },
             {
-                "id": 243366,
+                "id": 85869,
                 "type": 5,
                 "content": {
                     "title": {
@@ -703,7 +740,7 @@
                 "modules": null
             },
             {
-                "id": 243367,
+                "id": 85870,
                 "type": 6,
                 "content": {
                     "title": {
@@ -732,10 +769,10 @@
                 "modules": null
             },
             {
-                "id": 243368,
+                "id": 85871,
                 "type": 7,
                 "content": {
-                    "image": "https://assets.brandnot.live/assets/template-previews/Studio_54-Call_Out-default_image.jpeg",
+                    "image": "https://assets.brandnot.live/assets/template-previews/Apollo-Call_Out-default_image.jpeg",
                     "title": {
                         "en": "Title is king, content is queen",
                         "base": "Title is king, content is queen",
@@ -754,7 +791,8 @@
                         },
                         "button_name": {
                             "en": "Register now, it's free",
-                            "base": "Register now, it's free"
+                            "base": "Register now, it's free",
+                            "changed": ""
                         }
                     }
                 },
@@ -773,11 +811,11 @@
     },
     "sessions": [
         {
-            "session": 14481,
-            "channel": 67,
+            "session": 7536,
+            "channel": 101287,
             "title": {
-                "en": "On Demand 3",
-                "base": "On Demand 3"
+                "en": "On Demand 5",
+                "base": "On Demand 5"
             },
             "description": null,
             "tracks": [],
@@ -793,15 +831,15 @@
             },
             "moderation": null,
             "end_timestamp": null,
-            "uuid": "b96189fe-dfde-11ec-9746-fdfcbba8566b",
+            "uuid": "0419e208-13b9-11ed-8fb0-1f2accdf2955",
             "modules": [
                 {
-                    "id": 243317,
+                    "id": 85820,
                     "type": 16,
                     "content": {
                         "title": {
-                            "en": "On Demand 3",
-                            "base": "On Demand 3",
+                            "en": "On Demand 5",
+                            "base": "On Demand 5",
                             "changed": ""
                         },
                         "description": {
@@ -822,7 +860,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243318,
+                    "id": 85821,
                     "type": 1,
                     "content": {
                         "custom_heading": {
@@ -839,7 +877,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243319,
+                    "id": 85822,
                     "type": 12,
                     "content": {
                         "custom_heading": {
@@ -856,7 +894,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243320,
+                    "id": 85823,
                     "type": 13,
                     "content": {
                         "custom_heading": {
@@ -873,7 +911,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243321,
+                    "id": 85824,
                     "type": 14,
                     "content": {
                         "custom_heading": {
@@ -890,7 +928,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243322,
+                    "id": 85825,
                     "type": 4,
                     "content": {
                         "custom_heading": {
@@ -907,7 +945,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243323,
+                    "id": 85826,
                     "type": 8,
                     "content": {
                         "custom_heading": {
@@ -924,7 +962,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243324,
+                    "id": 85827,
                     "type": 17,
                     "content": {
                         "custom_heading": {
@@ -941,7 +979,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243325,
+                    "id": 85828,
                     "type": 10,
                     "content": null,
                     "is_on": true,
@@ -965,13 +1003,13 @@
                         "en": "Overview",
                         "base": "Overview"
                     },
-                    "uuid": "61fffd09-a1d3-44bc-bdef-1baf5623c1ae",
+                    "uuid": "12e2dacc-79f0-4e87-abda-5cc707f50df7",
                     "is_on": true,
                     "modules": [
-                        243317,
-                        243318,
-                        243322,
-                        243324
+                        85820,
+                        85821,
+                        85825,
+                        85827
                     ]
                 },
                 {
@@ -980,11 +1018,11 @@
                         "en": "Polls",
                         "base": "Polls"
                     },
-                    "uuid": "7d597d3b-2c68-4742-8940-446f4b3c7c78",
+                    "uuid": "e1d4930b-ab1c-4aa3-8a77-dc4f742e4bc2",
                     "is_on": true,
                     "modules": [
-                        243320,
-                        243321
+                        85823,
+                        85824
                     ]
                 },
                 {
@@ -993,10 +1031,10 @@
                         "en": "Documents",
                         "base": "Documents"
                     },
-                    "uuid": "6912ad9d-59f4-4c31-80f1-12e7a6cd25bb",
+                    "uuid": "2717578c-5911-406f-86f9-75b432cdf306",
                     "is_on": true,
                     "modules": [
-                        243323
+                        85826
                     ]
                 },
                 {
@@ -1005,10 +1043,10 @@
                         "en": "Questions",
                         "base": "Questions"
                     },
-                    "uuid": "758891fb-065b-4cc6-ad06-db420841b592",
+                    "uuid": "0436ce7f-f70d-4e4f-9f0f-dc7b096edda0",
                     "is_on": true,
                     "modules": [
-                        243319
+                        85822
                     ]
                 }
             ],
@@ -1036,17 +1074,20 @@
                 "enabled": false,
                 "reactions": []
             },
+            "session_chat_dark_mode_enabled": true,
+            "custom_css_compiled": null,
+            "use_safe_css": true,
             "breakout_room_order": null,
             "breakout_session_hosts": null,
             "breakout_session": null,
             "firesides_hosts": null
         },
         {
-            "session": 14482,
-            "channel": 67,
+            "session": 7537,
+            "channel": 101287,
             "title": {
-                "en": "Broadcast 2",
-                "base": "Broadcast 2"
+                "en": "Broadcast 8",
+                "base": "Broadcast 8"
             },
             "description": null,
             "tracks": [],
@@ -1055,22 +1096,22 @@
                 "en"
             ],
             "on_demand": false,
-            "timestamp": 1653891722068,
+            "timestamp": 1659592987224,
             "layout": {
                 "withMenu": true,
                 "overlayChat": false
             },
             "moderation": null,
-            "end_timestamp": 1653892622068,
-            "uuid": "b976b108-dfde-11ec-9746-fdfcbba8566b",
+            "end_timestamp": 1659593887224,
+            "uuid": "042e450e-13b9-11ed-8fb0-1f2accdf2955",
             "modules": [
                 {
-                    "id": 243326,
+                    "id": 85829,
                     "type": 16,
                     "content": {
                         "title": {
-                            "en": "Broadcast 2",
-                            "base": "Broadcast 2",
+                            "en": "Broadcast 8",
+                            "base": "Broadcast 8",
                             "changed": ""
                         },
                         "description": {
@@ -1091,7 +1132,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243327,
+                    "id": 85830,
                     "type": 1,
                     "content": {
                         "custom_heading": {
@@ -1108,7 +1149,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243328,
+                    "id": 85831,
                     "type": 12,
                     "content": {
                         "custom_heading": {
@@ -1125,7 +1166,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243329,
+                    "id": 85832,
                     "type": 13,
                     "content": {
                         "custom_heading": {
@@ -1142,7 +1183,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243330,
+                    "id": 85833,
                     "type": 14,
                     "content": {
                         "custom_heading": {
@@ -1159,7 +1200,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243331,
+                    "id": 85834,
                     "type": 4,
                     "content": {
                         "custom_heading": {
@@ -1176,7 +1217,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243332,
+                    "id": 85835,
                     "type": 8,
                     "content": {
                         "custom_heading": {
@@ -1193,7 +1234,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243333,
+                    "id": 85836,
                     "type": 17,
                     "content": {
                         "custom_heading": {
@@ -1210,7 +1251,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243334,
+                    "id": 85837,
                     "type": 10,
                     "content": null,
                     "is_on": true,
@@ -1234,13 +1275,13 @@
                         "en": "Overview",
                         "base": "Overview"
                     },
-                    "uuid": "d07f0451-8293-41bc-b724-63fceb00d334",
+                    "uuid": "2a7d1278-bb69-4618-b780-447666accd2b",
                     "is_on": true,
                     "modules": [
-                        243326,
-                        243327,
-                        243331,
-                        243333
+                        85829,
+                        85830,
+                        85834,
+                        85836
                     ]
                 },
                 {
@@ -1249,11 +1290,11 @@
                         "en": "Polls",
                         "base": "Polls"
                     },
-                    "uuid": "07acc5d6-d6b3-4da5-a060-49b04803529c",
+                    "uuid": "2de6ef50-b28b-4ed6-8c51-f5cccc0153c4",
                     "is_on": true,
                     "modules": [
-                        243329,
-                        243330
+                        85832,
+                        85833
                     ]
                 },
                 {
@@ -1262,10 +1303,10 @@
                         "en": "Documents",
                         "base": "Documents"
                     },
-                    "uuid": "74225279-84bd-46c9-a0d5-150c85edc1b1",
+                    "uuid": "b5603181-9d39-4046-9713-81aa95f2413e",
                     "is_on": true,
                     "modules": [
-                        243332
+                        85835
                     ]
                 },
                 {
@@ -1274,10 +1315,10 @@
                         "en": "Questions",
                         "base": "Questions"
                     },
-                    "uuid": "26f293c6-2589-4154-8824-eceeef5e4a38",
+                    "uuid": "3bc3aa24-da56-4d31-91b8-36aa6b72f620",
                     "is_on": true,
                     "modules": [
-                        243328
+                        85831
                     ]
                 }
             ],
@@ -1305,17 +1346,20 @@
                 "enabled": false,
                 "reactions": []
             },
+            "session_chat_dark_mode_enabled": true,
+            "custom_css_compiled": null,
+            "use_safe_css": true,
             "breakout_room_order": null,
             "breakout_session_hosts": null,
             "breakout_session": null,
             "firesides_hosts": null
         },
         {
-            "session": 14483,
-            "channel": 67,
+            "session": 7538,
+            "channel": 101287,
             "title": {
-                "en": "Fireside 6",
-                "base": "Fireside 6"
+                "en": "Fireside 9",
+                "base": "Fireside 9"
             },
             "description": null,
             "tracks": [],
@@ -1324,22 +1368,22 @@
                 "en"
             ],
             "on_demand": false,
-            "timestamp": 1653891722068,
+            "timestamp": 1659592987224,
             "layout": {
                 "withMenu": true,
                 "overlayChat": false
             },
             "moderation": null,
-            "end_timestamp": 1653892622068,
-            "uuid": "b9bde38e-dfde-11ec-9746-fdfcbba8566b",
+            "end_timestamp": 1659593887224,
+            "uuid": "046b18bc-13b9-11ed-8fb0-1f2accdf2955",
             "modules": [
                 {
-                    "id": 243335,
+                    "id": 85838,
                     "type": 16,
                     "content": {
                         "title": {
-                            "en": "Fireside 6",
-                            "base": "Fireside 6",
+                            "en": "Fireside 9",
+                            "base": "Fireside 9",
                             "changed": ""
                         },
                         "description": {
@@ -1360,7 +1404,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243336,
+                    "id": 85839,
                     "type": 1,
                     "content": {
                         "custom_heading": {
@@ -1377,7 +1421,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243337,
+                    "id": 85840,
                     "type": 12,
                     "content": {
                         "custom_heading": {
@@ -1394,7 +1438,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243338,
+                    "id": 85841,
                     "type": 13,
                     "content": {
                         "custom_heading": {
@@ -1411,7 +1455,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243339,
+                    "id": 85842,
                     "type": 14,
                     "content": {
                         "custom_heading": {
@@ -1428,7 +1472,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243340,
+                    "id": 85843,
                     "type": 4,
                     "content": {
                         "custom_heading": {
@@ -1445,7 +1489,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243341,
+                    "id": 85844,
                     "type": 8,
                     "content": {
                         "custom_heading": {
@@ -1462,7 +1506,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243342,
+                    "id": 85845,
                     "type": 17,
                     "content": {
                         "custom_heading": {
@@ -1479,7 +1523,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243343,
+                    "id": 85846,
                     "type": 10,
                     "content": null,
                     "is_on": true,
@@ -1503,13 +1547,13 @@
                         "en": "Overview",
                         "base": "Overview"
                     },
-                    "uuid": "3f728588-7d71-475c-ae3f-e887c1a99dee",
+                    "uuid": "3e531a44-d5c3-4e54-9c6f-6ffa4f266f54",
                     "is_on": true,
                     "modules": [
-                        243335,
-                        243336,
-                        243340,
-                        243342
+                        85838,
+                        85839,
+                        85843,
+                        85845
                     ]
                 },
                 {
@@ -1518,11 +1562,11 @@
                         "en": "Polls",
                         "base": "Polls"
                     },
-                    "uuid": "e199b3a6-8747-419f-9f48-1e7d979f3326",
+                    "uuid": "123a820a-fc51-463e-8af1-7d713f31a636",
                     "is_on": true,
                     "modules": [
-                        243338,
-                        243339
+                        85841,
+                        85842
                     ]
                 },
                 {
@@ -1531,10 +1575,10 @@
                         "en": "Documents",
                         "base": "Documents"
                     },
-                    "uuid": "53747a97-cfca-467f-9d33-a4679553ebf3",
+                    "uuid": "159daa95-4e83-438c-8857-f4cd30b80390",
                     "is_on": true,
                     "modules": [
-                        243341
+                        85844
                     ]
                 },
                 {
@@ -1543,10 +1587,10 @@
                         "en": "Questions",
                         "base": "Questions"
                     },
-                    "uuid": "d83022a8-98ba-418c-9fb6-0fca926ae023",
+                    "uuid": "68f9676e-9466-4041-b386-63854425d4f3",
                     "is_on": true,
                     "modules": [
-                        243337
+                        85840
                     ]
                 }
             ],
@@ -1560,8 +1604,8 @@
             "breakout_rooms": null,
             "replay_on": true,
             "should_record": true,
-            "opentok_id": "2_MX40NzQ0MDk3MX5-MTY1Mzg5MDgyMzMxOX4rQnNmWjdUZG54b045S2tlVzROblhyWmp-fg",
-            "opentok_id_issued_timestamp": "2022-05-30T06:07:03.359",
+            "opentok_id": "2_MX40NzQ1NTM4MX5-MTY1OTU5MjA4ODIwMn5TYVZ0dGVtcGwycm1Ia0VyamhUY0x4K2Z-fg",
+            "opentok_id_issued_timestamp": "2022-08-04T05:48:08.234",
             "session_chat_enabled": true,
             "streaming_options": {
                 "single_stream": false
@@ -1574,6 +1618,9 @@
                 "enabled": false,
                 "reactions": []
             },
+            "session_chat_dark_mode_enabled": true,
+            "custom_css_compiled": null,
+            "use_safe_css": true,
             "breakout_room_order": null,
             "breakout_session_hosts": null,
             "breakout_session": null,
@@ -1583,11 +1630,11 @@
             ]
         },
         {
-            "session": 14484,
-            "channel": 67,
+            "session": 7539,
+            "channel": 101287,
             "title": {
-                "en": "Breakout Room 7",
-                "base": "Breakout Room 7"
+                "en": "Breakout Room 9",
+                "base": "Breakout Room 9"
             },
             "description": null,
             "tracks": [],
@@ -1596,22 +1643,22 @@
                 "en"
             ],
             "on_demand": false,
-            "timestamp": 1653891722068,
+            "timestamp": 1659592987224,
             "layout": {
                 "withMenu": true,
                 "overlayChat": false
             },
             "moderation": null,
-            "end_timestamp": 1653892622068,
-            "uuid": "b9e3f2d6-dfde-11ec-9746-fdfcbba8566b",
+            "end_timestamp": 1659593887224,
+            "uuid": "04891e66-13b9-11ed-8fb0-1f2accdf2955",
             "modules": [
                 {
-                    "id": 243344,
+                    "id": 85847,
                     "type": 16,
                     "content": {
                         "title": {
-                            "en": "Breakout Room 7",
-                            "base": "Breakout Room 7",
+                            "en": "Breakout Room 9",
+                            "base": "Breakout Room 9",
                             "changed": ""
                         },
                         "description": {
@@ -1632,7 +1679,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243345,
+                    "id": 85848,
                     "type": 1,
                     "content": {
                         "custom_heading": {
@@ -1649,7 +1696,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243346,
+                    "id": 85849,
                     "type": 12,
                     "content": {
                         "custom_heading": {
@@ -1666,7 +1713,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243347,
+                    "id": 85850,
                     "type": 13,
                     "content": {
                         "custom_heading": {
@@ -1683,7 +1730,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243348,
+                    "id": 85851,
                     "type": 14,
                     "content": {
                         "custom_heading": {
@@ -1700,7 +1747,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243349,
+                    "id": 85852,
                     "type": 4,
                     "content": {
                         "custom_heading": {
@@ -1717,7 +1764,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243350,
+                    "id": 85853,
                     "type": 8,
                     "content": {
                         "custom_heading": {
@@ -1734,7 +1781,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243351,
+                    "id": 85854,
                     "type": 17,
                     "content": {
                         "custom_heading": {
@@ -1751,7 +1798,7 @@
                     "modules": null
                 },
                 {
-                    "id": 243352,
+                    "id": 85855,
                     "type": 10,
                     "content": null,
                     "is_on": true,
@@ -1776,10 +1823,10 @@
                         "base": "Breakout Rooms"
                     },
                     "type": "breakout",
-                    "uuid": "87d22f9f-2e0c-4192-abb2-10d0b065c045",
+                    "uuid": "3058abe7-b350-4ed9-bd58-65199d586d96",
                     "is_on": true,
                     "modules": [
-                        1972
+                        667
                     ]
                 },
                 {
@@ -1788,13 +1835,13 @@
                         "en": "Overview",
                         "base": "Overview"
                     },
-                    "uuid": "7fcd050d-efd0-4dcc-8f30-b03696457fdd",
+                    "uuid": "787e59a4-9660-439f-9b47-bd3cf9d60d93",
                     "is_on": true,
                     "modules": [
-                        243344,
-                        243345,
-                        243349,
-                        243351
+                        85847,
+                        85848,
+                        85852,
+                        85854
                     ]
                 },
                 {
@@ -1803,11 +1850,11 @@
                         "en": "Polls",
                         "base": "Polls"
                     },
-                    "uuid": "da637df7-b8a6-4da2-a5e7-301a34ff32db",
+                    "uuid": "37de02a4-fd89-4e0d-b5d4-cd12c28b6369",
                     "is_on": true,
                     "modules": [
-                        243347,
-                        243348
+                        85850,
+                        85851
                     ]
                 },
                 {
@@ -1816,10 +1863,10 @@
                         "en": "Documents",
                         "base": "Documents"
                     },
-                    "uuid": "cb775a01-1cc0-4ec9-885d-f86c789f769e",
+                    "uuid": "66b6c7e8-e89f-49aa-8c5d-f68552c456dd",
                     "is_on": true,
                     "modules": [
-                        243350
+                        85853
                     ]
                 },
                 {
@@ -1828,10 +1875,10 @@
                         "en": "Questions",
                         "base": "Questions"
                     },
-                    "uuid": "8d78e2fc-e74c-4e08-848e-11937e0e1174",
+                    "uuid": "2c78d37a-5e3c-4290-b367-713b94988433",
                     "is_on": true,
                     "modules": [
-                        243346
+                        85849
                     ]
                 }
             ],
@@ -1844,11 +1891,11 @@
             "custom_css": null,
             "breakout_rooms": [
                 {
-                    "id": 1972,
-                    "uuid": "41653853-12d5-4a86-9e15-653cd7a99b5b",
+                    "id": 667,
+                    "uuid": "a5f230fc-8bbc-4eb1-ab1b-f3f66e6a87ce",
                     "description": null,
                     "type": "interest",
-                    "session": 14484,
+                    "session": 7539,
                     "image": "",
                     "name": "Room1",
                     "max_users": 15,
@@ -1872,21 +1919,24 @@
                 "enabled": false,
                 "reactions": []
             },
+            "session_chat_dark_mode_enabled": true,
+            "custom_css_compiled": null,
+            "use_safe_css": true,
             "breakout_room_order": [
-                1972
+                667
             ],
             "breakout_session_hosts": [
                 {
-                    "session": 14484,
+                    "session": 7539,
                     "email": "brandlive.automation1@gmail.com"
                 },
                 {
-                    "session": 14484,
+                    "session": 7539,
                     "email": "pradnyan.bhilare@brandlive.com"
                 }
             ],
             "breakout_session": {
-                "session": 14484,
+                "session": 7539,
                 "create_room_when_full": true,
                 "use_background_image": false,
                 "background_image": null,
@@ -1907,7 +1957,9 @@
             "global": true,
             "persistent": true,
             "default_value": null,
-            "placeholder": null
+            "placeholder": null,
+            "name_translation": null,
+            "options_translation": null
         },
         {
             "registration_question": 2,
@@ -1918,7 +1970,9 @@
             "global": true,
             "persistent": true,
             "default_value": null,
-            "placeholder": null
+            "placeholder": null,
+            "name_translation": null,
+            "options_translation": null
         },
         {
             "registration_question": 3,
@@ -1929,100 +1983,32 @@
             "global": true,
             "persistent": true,
             "default_value": null,
-            "placeholder": null
+            "placeholder": null,
+            "name_translation": null,
+            "options_translation": null
+        },
+        {
+            "registration_question": 10,
+            "channel": 0,
+            "name": "Passcode",
+            "type": "text",
+            "options": null,
+            "global": true,
+            "persistent": false,
+            "default_value": null,
+            "placeholder": null,
+            "name_translation": null,
+            "options_translation": null
         }
     ],
-    "uuid": "ba0e7ccc-dfde-11ec-9746-fdfcbba8566b",
+    "uuid": "04b1917a-13b9-11ed-8fb0-1f2accdf2955",
     "required_registration_questions": [
         1,
         2,
-        3
+        3,
+        10
     ],
-    "created_date": "2022-05-30T06:07:03.888Z",
-    "registration_steps": [
-        {
-            "isOn": true,
-            "type": "general",
-            "questions": [
-                {
-                    "registration_question": 1,
-                    "channel": 0,
-                    "name": "First Name",
-                    "type": "text",
-                    "options": null,
-                    "global": true,
-                    "persistent": true,
-                    "default_value": null,
-                    "placeholder": null
-                },
-                {
-                    "registration_question": 2,
-                    "channel": 0,
-                    "name": "Last Name",
-                    "type": "text",
-                    "options": null,
-                    "global": true,
-                    "persistent": true,
-                    "default_value": null,
-                    "placeholder": null
-                },
-                {
-                    "registration_question": 3,
-                    "channel": 0,
-                    "name": "Email Address",
-                    "type": "email",
-                    "options": null,
-                    "global": true,
-                    "persistent": true,
-                    "default_value": null,
-                    "placeholder": null
-                }
-            ]
-        },
-        {
-            "isOn": false,
-            "type": "profile",
-            "questions": [
-                {
-                    "registration_question": 6,
-                    "channel": 0,
-                    "name": "Company Name",
-                    "type": "text",
-                    "options": null,
-                    "global": true,
-                    "persistent": true,
-                    "default_value": null,
-                    "placeholder": null
-                },
-                {
-                    "registration_question": 4,
-                    "channel": 0,
-                    "name": "Bio",
-                    "type": "textarea",
-                    "options": null,
-                    "global": true,
-                    "persistent": false,
-                    "default_value": null,
-                    "placeholder": null
-                },
-                {
-                    "registration_question": 9,
-                    "channel": 0,
-                    "name": "Fun Fact",
-                    "type": "text",
-                    "options": null,
-                    "global": true,
-                    "persistent": false,
-                    "default_value": null,
-                    "placeholder": null
-                }
-            ]
-        },
-        {
-            "isOn": false,
-            "type": "avatar"
-        }
-    ],
+    "created_date": "2022-08-04T05:48:08.697Z",
     "privacy_policy": null,
     "terms_id": null,
     "custom_css": null,
@@ -2096,13 +2082,96 @@
         "messaging": false,
         "topicGroupChats": false,
         "eventChatChannels": {
-            "uuid": "cbb90612-596c-4106-87db-62e876910681",
+            "uuid": "8fa5eb63-4b09-4741-a104-547fdae77a26",
             "title": "Event Lobby",
-            "created_at": 1653890822068,
+            "created_at": 1659592087224,
             "group_type": 0,
             "channelImageUrl": ""
         }
     },
-    "playbackUrls": {},
-    "secondaryVideos": {}
+    "custom_css_compiled": null,
+    "use_safe_css": true,
+    "playbackUrls": {
+        "042e450e-13b9-11ed-8fb0-1f2accdf2955-en": "https://1e38737af797.us-west-2.playback.live-video.net/api/video/v1/us-west-2.107144714750.channel.ry1vJmbbUPlI.m3u8",
+        "046b18bc-13b9-11ed-8fb0-1f2accdf2955-en": "https://1e38737af797.us-west-2.playback.live-video.net/api/video/v1/us-west-2.107144714750.channel.3d74BMS7agRA.m3u8"
+    },
+    "secondaryVideos": {},
+    "registration_steps": [
+        {
+            "isOn": true,
+            "type": "general",
+            "questions": [
+                {
+                    "registration_question": 1,
+                    "channel": 0,
+                    "name": "First Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null
+                },
+                {
+                    "registration_question": 2,
+                    "channel": 0,
+                    "name": "Last Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null
+                },
+                {
+                    "registration_question": 3,
+                    "channel": 0,
+                    "name": "Email Address",
+                    "type": "email",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null
+                }
+            ]
+        },
+        {
+            "isOn": true,
+            "type": "profile",
+            "questions": [
+                {
+                    "registration_question": 6,
+                    "channel": 0,
+                    "name": "Company Name",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": true,
+                    "default_value": null
+                },
+                {
+                    "registration_question": 4,
+                    "channel": 0,
+                    "name": "Bio",
+                    "type": "textarea",
+                    "options": null,
+                    "global": true,
+                    "persistent": false,
+                    "default_value": null
+                },
+                {
+                    "registration_question": 9,
+                    "channel": 0,
+                    "name": "Fun Fact",
+                    "type": "text",
+                    "options": null,
+                    "global": true,
+                    "persistent": false,
+                    "default_value": null
+                }
+            ]
+        },
+        {
+            "isOn": true,
+            "type": "avatar"
+        }
+    ]
 }

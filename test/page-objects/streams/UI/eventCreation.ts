@@ -1,6 +1,7 @@
 import Page from "../../page"
 import reporter from "../../../utils/reporter"
 import EventTemplateSelection from "./eventTemplateSelection";
+import pause from "webdriverio/build/commands/browser/pause";
 // import EventTemplateSelection from "./EventTemplateSelection"
 
 class EventCreation extends Page {
@@ -44,6 +45,7 @@ class EventCreation extends Page {
         try {
             if (await this.addSessionModal.isDisplayed()) {
                 reporter.addStep("info", `Session modal is displayed.`)
+                await browser.pause(4000)
                 await this.click(await this.dropDownArrow)
                 reporter.addStep("info", `Clicked on the Session drop down.`)
                 await this.click(await this.onDemanSelector)
@@ -63,17 +65,18 @@ class EventCreation extends Page {
     private async setEventAvailability(register: boolean) {
         try {
             if (await this.addSessionModal.isDisplayed()) {
+                reporter.addStep("info", `The modal pop up is displayed.`)
                 if (!register) {
                     await this.click(await this.openRadio)
-                    await browser.pause(2000)
                     reporter.addStep("info", `Clicked on the Open radio button.`)
                 } else {
                     await this.click(await this.registerRadio)
-                    await browser.pause(2000)
                     reporter.addStep("info", `Clicked on the registrataion radio button.`)
                 }
+                await browser.pause(2000)
                 await this.click(await this.addButton)
                 reporter.addStep("info", `Clicked on the Next button.`)
+                await browser.pause(3000)
             }
 
         } catch (err) {
@@ -87,13 +90,12 @@ class EventCreation extends Page {
             if (await this.addSessionModal.isDisplayed()) {
                 if (!lp) {
                     await this.click(await this.noLPRadio)
-                    await browser.pause(2000)
                     reporter.addStep("info", `Clicked on the No Landing page radio button.`)
                 } else {
                     await this.click(await this.yesLPRadio)
-                    await browser.pause(2000)
                     reporter.addStep("info", `Clicked on the Yes Landing page radio button.`)
                 }
+                await browser.pause(2000)
                 await this.click(await this.addButton)
                 reporter.addStep("info", `Clicked on the Next button.`)
             }
@@ -139,12 +141,13 @@ class EventCreation extends Page {
             reporter.addStep("info", `Entered the Event name.`)
             await this.click(await this.addSessionLink)
             reporter.addStep("info", `Clicked on the Add session link.`)
-            this.addOnDemandSession()
+            await this.addOnDemandSession()
+            await browser.pause(2000)
             await this.click(await this.addEventButton)
             reporter.addStep("info", `Clicked on the Next button.`)
             await browser.pause(2000)
-            this.setEventAvailability(setEA);
-            this.addLandingPage(addLP);
+            await this.setEventAvailability(setEA);
+            await this.addLandingPage(addLP);
             await browser.pause(10000)
         } catch (err) {
             err.message = `Error creating the On Demand session: , ${err.message} `
@@ -199,8 +202,8 @@ class EventCreation extends Page {
             await this.click(await this.addEventButton)
             reporter.addStep("info", `Clicked on the Next button.`)
             await browser.pause(2000)
-            this.setEventAvailability(setEA);
-            this.addLandingPage(addLP);
+            await this.setEventAvailability(setEA);
+            await this.addLandingPage(addLP);
             await browser.pause(10000)
         } catch (err) {
             err.message = `Error creating the Broadcast session: , ${err.message} `
@@ -249,7 +252,7 @@ class EventCreation extends Page {
             }
             await this.click(await this.addButton)
             reporter.addStep("info", `Clicked on the Next button.`)
-            this.addLandingPage(addLP);
+            await this.addLandingPage(addLP);
             await browser.pause(10000)
         } catch (err) {
             err.message = `Error creating the Fireside session: , ${err.message} `
@@ -367,7 +370,7 @@ class EventCreation extends Page {
             }
             await this.click(await this.addButton)
             reporter.addStep("info", `Clicked on the Next button.`)
-            this.addLandingPage(addLP);
+            await this.addLandingPage(addLP);
             await browser.pause(10000)
         } catch (err) {
             err.message = `Error creating the breakout V2 session: , ${err.message} `

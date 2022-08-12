@@ -5,6 +5,9 @@ import LiveMode from "../../../page-objects/greenroom/UI/liveMode";
 import mediaDrawer from "../../../page-objects/greenroom/UI/mediaDrawer";
 import showBoard from "../../../page-objects/greenroom/UI/showBoard"
 import feedsDrawer from "../../../page-objects/greenroom/UI/feedsDrawer";
+import liveMode from "../../../page-objects/greenroom/UI/liveMode";
+import chai from "chai";
+import designDrawer from "../../../page-objects/greenroom/UI/designDrawer";
 
 Given (/^Navigate to Live Mode$/, async function(){
     reporter.addStep("info", `Joining SGR Event show...`)
@@ -81,4 +84,61 @@ Given (/^Mute all users$/, async function(){
 Given (/^Unmute all users$/, async function(){
     reporter.addStep("info", `Unmute All users from feeds tab`)
     await feedsDrawer.unmuteAllUsers()
+})
+
+Given (/^Pause video playing on the shot$/, async function(){
+    reporter.addStep("info", `Pausing video playing on the canvas`)
+    await liveMode.pauseVideo()
+})
+
+Given (/^Get the duration at which the video is paused$/, async function(){
+    reporter.addStep("info", `Capturing duration at which the video is paused`)
+    await liveMode.getVideoDuration()
+})
+
+Given (/^Validate that the video is paused at the correct duration$/, async function(){
+    reporter.addStep("info", `Validating video is paused at correct duration for presenter`)
+    let videoDuration = Object.getPrototypeOf(LiveMode).constructor.videoPausedDuration
+    let durationNUmber: number = +videoDuration;
+   chai.expect(durationNUmber).to.be.greaterThanOrEqual(1)
+})
+
+Given (/^Pause (.*) times execution for (.*) mins$/, async function(loop:number,mins:number){
+    reporter.addStep("info", `Pausing ${loop} times execution for ${mins} mins`)
+	const totalTime = mins*1000*60
+	for (let i = 0; i < loop; i++) {
+		await browser.pause(totalTime)
+		console.log('Count : ' , i);
+	  }
+})
+
+Given (/^Start recording of the show$/, async function(){
+    reporter.addStep("info", `Starting recording of the show`)
+    await liveMode.startRecordingShow()
+})
+
+Given (/^Stop recodring of the show$/, async function(){
+    reporter.addStep("info", `Stopping recording of the show`)
+    await liveMode.stopRecordingShow()
+})
+
+Given (/^Navigate to Recordings tab$/, async function(){
+    reporter.addStep("info", `Stopping recording of the show`)
+    await mediaDrawer.navigateToRecordingTab();
+})
+
+Given (/^Validate that recording is saved with correct name$/, async function(){
+    reporter.addStep("info", `Validating name of the saved recording`)
+    await liveMode.validateRecordingName();
+	chai.expect(Object.getPrototypeOf(liveMode).constructor.recordingName).to.be.equal("recording-1")
+})
+
+Given (/^Drag and drop feeds to the canvas$/, async function(){
+    reporter.addStep("info", `Dropping the feed to canvas...`)
+    await feedsDrawer.dragAndDropFeedToCanvas()
+})
+
+Given (/^Open Design Tab$/, async function(){
+    reporter.addStep("info", `Navigating to Design tab...`)
+    await designDrawer.openDesignDrawer()
 })

@@ -60,3 +60,39 @@ Scenario: Create all sessions based Event
     And Get event publish status by event uuid
     And Publish event
     And Get event publish status by event uuid          
+
+Scenario: Add Existing Video to Homepage
+    And Check new event name
+    And Add existing Video to homepage
+    And Get new event by event uuid
+    And Check url for the new event
+    And Get event publish status by event uuid
+    And Publish event
+    And Get event publish status by event uuid
+
+Scenario: Add Existing Product to Homepage
+    And Check new event name
+    And Add existing Product to homepage
+    And Get new event by event uuid
+    And Check url for the new event
+    And Get event publish status by event uuid
+    And Publish event
+    And Get event publish status by event uuid
+
+Scenario: Add Existing Speaker to Homepage
+    And Check new event name
+    And Add existing Speaker to homepage
+    And Get new event by event uuid
+    And Check url for the new event
+    And Get event publish status by event uuid
+    And Publish event
+    And Get event publish status by event uuid
+
+Scenario: Add Existing Sponsor to Homepage
+    And Check new event name
+    And Add existing Sponsor to homepage
+    And Get new event by event uuid
+    And Check url for the new event
+    And Get event publish status by event uuid
+    And Publish event
+    And Get event publish status by event uuid

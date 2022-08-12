@@ -75,7 +75,7 @@ class HomeRestApi {
 
         //console.log(`>> Response: ${JSON.stringify(response.body)}`)
         HomeRestApi.getEventsForChannelRes = JSON.parse(JSON.stringify(response.body))
-        return HomeRestApi.getEventsForChannelRes
+        return response
     }
 
 }

@@ -1,0 +1,124 @@
+@e2e_showGoLive_gr_api
+
+Feature: Builder Mode Actions Feature
+
+Scenario: Create Standalone Event 
+	Given Check producer app access
+	And Login to greenroom with greenroom
+	And Get all standalone GR channels
+	And Get all standalone GR events
+	And Create new standalone GR Event 
+
+Scenario: Check Home Page navigation api
+	And Get Standalone meetings by channel Id
+	And Get Standalone meetings by event id
+
+Scenario: Check navigation from home page to live mode api
+	And Get active rooms
+	And Get details using meeting id
+	And Send inviations to presenter using meeting id
+	And Get inviations using room id
+	And Create log for a meeting message type producer_connected
+	And Get broadcast check by meeting id
+	And Get active rooms
+	And Create log for a meeting message type load_meeting
+	And Get Request State Sync
+	And Post Load Shots
+	And Get rooms media details
+	And Get Graphics Details
+	And Get Show Sessions
+	And Get media all meeting background
+	And Get presenter messages 
+	And Create log for a meeting message type socket_connected
+	And Get Join Request by meeting id
+	And Post Tokbox token
+	And Get Green Room Notification
+	And Write State for SET_PRESENTED_MEDIA in Live mode
+	And Get Direct Chat Messages
+	And Get Room Chat Messages
+
+Scenario: Check navigation from live mode to Builder mode
+	Given Get active rooms
+	And Write State for SET_PRESENTED_MEDIA in Live mode
+	And Write State for SET_CURRENT_SHOT_ID in Live mode
+	And Post settings in builder mode
+
+# FYI: The RtmpAddress and StreamKey used for this test was just pulled from an existing Stream GR. 
+
+Scenario: Enter the destination details
+    Given Get active rooms
+    And Settings call for adding streaming destination
+    | Name                 | RtmpAddress      | StreamKey   |
+    | Streams    | rtmps://a3f18f6a93ea.global-contribute.live-video.net:443/app        | sk_us-west-2_bBIsF7AMaopY_dXWpi8q773JX2THB2YGVbg5WcddPU0     | 
+    And Update broadcast details to meeting room
+     | Name                 | RtmpAddress      | StreamKey   |
+    | Streams    | rtmps://a3f18f6a93ea.global-contribute.live-video.net:443/app        | sk_us-west-2_bBIsF7AMaopY_dXWpi8q773JX2THB2YGVbg5WcddPU0     | 
+
+Scenario: Enable the same destination
+    Given Get active rooms
+    And Settings call for enabling streaming destination
+    | Name                 | RtmpAddress      | StreamKey   |
+    | Streams    | rtmps://a3f18f6a93ea.global-contribute.live-video.net:443/app        | sk_us-west-2_bBIsF7AMaopY_dXWpi8q773JX2THB2YGVbg5WcddPU0     | 
+    And Update broadcast details to meeting room
+    | Name                 | RtmpAddress      | StreamKey   |
+    | Streams    | rtmps://a3f18f6a93ea.global-contribute.live-video.net:443/app        | sk_us-west-2_bBIsF7AMaopY_dXWpi8q773JX2THB2YGVbg5WcddPU0     | 
+
+Scenario: Invite Presenter to A Room in the Greenroom
+    And Create an invitation for brandlive.loadautomation1@gmail.com
+    And Create a notification for brandlive.loadautomation1@gmail.com
+    And Create an iOS notification for brandlive.loadautomation1@gmail.com
+
+Scenario: Check Producer is able to Add Shot in Builder mode
+    And Get active rooms
+    And Add shot in builder mode
+    And Post Load Shots
+    And Post Bulk Edit Shots
+    And Post Load Shots
+	And Add shotDuration of newly added shot
+	And Add shotTitle of newly added shot 
+    And Create log for a meeting message type producer_connected
+    And Create log for a meeting message type connected_users
+    And Write State for SET_CURRENT_SHOT_ID in Live mode
+
+Scenario: Check Producer is able to upload MP4 file
+    Then Upload a mp4 to GR Event
+    Then Upload the mp4 to AWS
+    Then Notify backend that upload has completed
+    Then Create thumbnail for mp4
+    Then Upload thumbnail to AWS
+    Then Notify backend that upload has completed
+    Then Tell the backend to create the mp4 media item
+    Then Request the newly created media item
+    And Get active rooms
+
+Scenario: Check Producer is able to upload JPG file
+    And Upload a jpg to GR Event
+    And Upload the jpg to AWS
+    And Notify backend that upload has completed
+    And Create thumbnail for jpg
+    And Upload thumbnail to AWS
+    And Notify backend that upload has completed
+    And Tell the backend to create the jpg media item
+    And Request the newly created media item
+	And Get active rooms
+
+Scenario: Check Producer is able to upload PDF file
+    And Create log for a meeting message type producer_connected
+    And Create log for a meeting message type connected_users
+    And Get active rooms
+    Then Mock get CloudConvert job for the PDF
+    Then Tell the backend to create the PDF
+    Then Create log for a meeting message type producer_connected
+    Then Create log for a meeting message type connected_users
+    Then Get active rooms
+    Then Get converted PDF ID
+    Then Request the newly created media item
+
+Scenario: Check Producer is able to Drag and drop PDF, mp4 and Jpg files on shot
+	Then Request the newly created media item
+	 And Get active rooms
+     And Post edit drag and drop for the shot
+     And Post Load Shots
+     And Add mp4 to pdf media item
+	 And Create log for a meeting message type producer_connected
+	 Then Create log for a meeting message type connected_users

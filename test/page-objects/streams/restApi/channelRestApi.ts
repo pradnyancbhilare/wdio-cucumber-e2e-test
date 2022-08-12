@@ -16,6 +16,8 @@ class ChannelRestApi {
     static postCheckIntegrationUserRes: any
     static getIntegrationSolutionsRes: any
     static getSettingsAuthAdminsRes: any
+    static putChannelProductsRes: any
+    static putChannelSponsorsRes: any
 
     constructor() {
 
@@ -39,7 +41,7 @@ class ChannelRestApi {
 
         //console.log(`>> Response: ${JSON.stringify(response.body)}`)
         ChannelRestApi.getChannelRegistrationsRes = JSON.parse(JSON.stringify(response.body))
-        return ChannelRestApi.getChannelRegistrationsRes
+        return response
     }
 
     async getChannelRegistrationsCount(host: string, channelId: number): Promise<any> {
@@ -72,7 +74,7 @@ class ChannelRestApi {
         let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
         console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
         
-        let response = await request(host)
+        let response = await request(host) 
                     .get(endpoint)
                     .set("content-type", "application/json")
                     .set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
@@ -273,8 +275,70 @@ class ChannelRestApi {
         console.log(`>> Response: ${JSON.stringify(response.body)}`)
         ChannelRestApi.getSettingsAuthAdminsRes = JSON.parse(JSON.stringify(response.body))
         return ChannelRestApi.getSettingsAuthAdminsRes
-    }     
+    } 
+    
+    async getChannelId(channelName: string): Promise<number> {
+        let allStreamsChannelsArr = Object.getPrototypeOf(HomeRestApi).constructor.getChannelsForProfileRes
+        console.log(`Channels >>> ${JSON.stringify(allStreamsChannelsArr)}`)
+    
+        let channelId: number
+        if(allStreamsChannelsArr.length >= 1) {
+            for(let ele of allStreamsChannelsArr) {
+                for(let key in ele) {
+                    let keyVal = `${ele[key]}`
+                    if(keyVal.match(channelName)) {
+                        channelId = parseInt(`${ele['channel']}`)
+                    }
+                }
+            }
+        }
+        if(!channelId) throw Error(`The channel id is ${channelId}`)
+    
+        console.log(`Channel id is: ${channelId}`)
+        return channelId
+    }
 
+    async putChannelProducts(host: string, languages: string[], product: any): Promise<any> {
+        const endpoint = `/v3/admin/channel/products`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${JSON.stringify({ languages, product })}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+
+        let response = await request(host)
+            .put(endpoint)
+            .set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+            .set("content-type", "application/json")
+            .accept("*/*")
+            .query(queryStr)
+            .send({ languages, product })
+
+        ChannelRestApi.putChannelProductsRes = JSON.parse(JSON.stringify(response.body))
+        return ChannelRestApi.putChannelProductsRes
+    }
+
+    async putChannelSponsors(host: string, languages: string[], sponsor: any): Promise<any> {
+        const endpoint = `/v3/admin/channel/sponsors`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${JSON.stringify({ languages, sponsor })}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+
+        let response = await request(host)
+            .put(endpoint)
+            .set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+            .set("content-type", "application/json")
+            .accept("*/*")
+            .query(queryStr)
+            .send({ languages, sponsor })
+
+        ChannelRestApi.putChannelSponsorsRes = JSON.parse(JSON.stringify(response.body))
+        return ChannelRestApi.putChannelSponsorsRes
+    }
 }
 
 export default new ChannelRestApi

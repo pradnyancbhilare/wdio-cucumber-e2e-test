@@ -1,11 +1,13 @@
 import {config as baseConfig} from "../wdio.conf"
 export const config = Object.assign(baseConfig, {
     // All STAGE environment specific key value pairs
-    Environment: "Stage",
+    Environment: "STAGING",
     Greenroom_Ui_Host: "https://greenroom.brandlive-staging.com",
     Greenroom_Api_Host: "https://greenroom-api.brandlive-staging.com",
+    Greenroom_Sync_Host: "https://greenroom-sync.brandlive-staging.com",
     Streams_Ui_Host: "https://admin.brandlive-staging.com",
     Streams_Api_Host: "https://events-api.brandlive-staging.com",
+    Streams_Api_Uploads: "https://uploads.brandlive-staging.com",
     Streams_Live_Api_Host: "https://api-hv.brandlive-staging.com",
     Username: "brandlive.automation1@gmail.com",
     Password: "Brandlive123!",

@@ -14,6 +14,7 @@ class MediaDrawer extends Page {
  get DragNDrop1B(){return $(`//div[@class='video-container-presenter first']`)}
  get DragNDropSecondFeed(){return $(`(//div[@class='video-container-presenter second'])[1]`)}
  get DragNDropThirdFeed(){return $(`(//div[@class='video-container-presenter third'])[1]`)}
+ get recordingTab(){return $(`(//div[contains(@class,'sliding-menu-option')])[5]`)}
 
  async openMediaDrawer() {
     try {
@@ -98,5 +99,20 @@ async dragNDropFileToFeed(name :string,feedNo : number) {
         throw err
     }
 }
+
+async navigateToRecordingTab() {
+    try {
+        await this.click(await this.recordingTab)
+        await browser.pause(1000)
+    } catch (err) {
+        err.message=`Error when Opening recording tab`
+        throw err
+    }
+}
+
+
+
+
+
 }
 export default new MediaDrawer

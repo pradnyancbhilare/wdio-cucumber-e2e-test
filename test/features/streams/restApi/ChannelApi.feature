@@ -12,10 +12,3 @@ Scenario: Test Channel Level Api
     And Get channel passcode lists
     And Get channel members for passcode list
     And Get channel member count for passcode list
-    And Get channel paid lists
-    And Get channel members for paid list
-    And Get stripe status
-    And Get google analytics status
-    And Check integration user details
-    And Get integration solutions
-    And Get settings auth admins

@@ -1,7 +1,7 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import reporter from "../../../utils/reporter"
 import chai from "chai";
-import SGREventCreationPage from "../../../page-objects/greenroom/UI/standalone/SGREventCreationPage";
+import SGREventCreationPage from "../../../page-objects/greenroom/UI/Standalone/SGREventCreationPage";
 import DetailsPage from "../../../page-objects/greenroom/UI/detailsPage";
 import LiveMode from "../../../page-objects/greenroom/UI/liveMode";
 import ShowBuilderMode from "../../../page-objects/greenroom/UI/showBuilderMode";
@@ -12,7 +12,7 @@ import showBoard from "../../../page-objects/greenroom/UI/showBoard"
 
 Given(/^Login to (.*) greenroom as (.*) using (.*)$/, async function(app: string, role: string,email: string){
     reporter.addStep("info", `The log in to greenroom is in progress with user : ${email}`)
-	
+
 	//@ts-ignore
 	let password = browser.config.Password
     //@ts-ignore
@@ -37,7 +37,10 @@ Given(/^Login to (.*) greenroom as (.*) using (.*)$/, async function(app: string
             break;
         case "presenter":
             reporter.addStep("info", `The role value is ${role}...`)
-
+			let presenterUrl = `${greenroom_host}`
+            await homePageUI.navigateToGreenroomUrl(presenterUrl)
+            await homePageUI.greenroomLoginForApp(email, password)
+            await homePageUI.confirmPresenterDetails()
             break;
         default:
             reporter.addStep("info", `The role value ${role} is not valid...`)
@@ -46,23 +49,23 @@ Given(/^Login to (.*) greenroom as (.*) using (.*)$/, async function(app: string
 })
 
 
-Given (/^Create New SGR Event$/, async function(){
+Given (/^Create New SGR Event and invite (.*)$/, async function(invite: string){
 	await browser.pause(15000)
     reporter.addStep("info", `Create New SGR Event show is in progress...`)
-    await SGREventCreationPage.createNewSGREvent()
+    await SGREventCreationPage.createNewSGREvent(invite)
 	console.log(`New SGR Event Created with Title : `, Object.getPrototypeOf(SGREventCreationPage).constructor.getSGREventName)
-})    
+})
 
 Given (/^Search and Navigate to Show Details Page$/, async function(){
     await browser.pause(8000)
     reporter.addStep("info", `Search New SGR Event...`)
 		const room_title = process.env?.ROOM_TITLE ?? 'NA'
 		console.log("The room title is " ,room_title)
-		
+
 		if (room_title !='NA'){
-			await homePageUI.searchNewSGREvent(room_title)	
+			await homePageUI.searchNewSGREvent(room_title)
 		}else{
-		await homePageUI.searchNewSGREvent(Object.getPrototypeOf(SGREventCreationPage).constructor.getSGREventName)	
+		await homePageUI.searchNewSGREvent(Object.getPrototypeOf(SGREventCreationPage).constructor.getSGREventName)
 		}
 		try {
 		if (room_title !='NA'){
@@ -136,9 +139,9 @@ Given (/^Drag and Drop Image to canvas$/, async function(){
     await mediaDrawer.dragAndDropImage("sample_image.jpg")
 })
 
-Given (/^Refresh the room every 30 secs$/, async function(){
-    reporter.addStep("info", `Refresing room every 30 secs`)
-	await LiveMode.refreshEvery30secs()
+Given (/^Refresh the room every (.*) secs$/, async function(seconds:number){
+    reporter.addStep("info", `Refresing room every ${seconds} secs`)
+	await LiveMode.refreshEvery(seconds)
 })
 
 Given (/^Pause the execution for (.*) mins$/, async function(mins:number){

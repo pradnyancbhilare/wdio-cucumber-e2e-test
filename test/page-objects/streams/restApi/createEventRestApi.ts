@@ -13,7 +13,7 @@ class CreateEventRestApi {
     static postCreateEventRes: any
     static getEventDetailsByUuidRes: any
     static postCheckEventPathUrlRes: any
-
+    static statusCode: any
     constructor() {
 
     }
@@ -145,6 +145,7 @@ class CreateEventRestApi {
                     .send(payload)
 
         console.log(`>> Response: ${JSON.stringify(response.body)}`)
+        CreateEventRestApi.statusCode = JSON.parse(JSON.stringify(response.status))
         CreateEventRestApi.postCreateEventRes = JSON.parse(JSON.stringify(response.body))
         return CreateEventRestApi.postCreateEventRes
     }

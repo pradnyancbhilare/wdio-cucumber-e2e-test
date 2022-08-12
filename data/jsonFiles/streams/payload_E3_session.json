@@ -1,0 +1,311 @@
+{
+    "session": 12520,
+    "channel": 101287,
+    "title": {
+        "en": "On Demand 6",
+        "base": "On Demand 6"
+    },
+    "description": null,
+    "tracks": [],
+    "default_language": "en",
+    "languages": [
+        "en"
+    ],
+    "on_demand": true,
+    "timestamp": null,
+    "layout": {
+        "withMenu": true,
+        "overlayChat": false
+    },
+    "moderation": null,
+    "end_timestamp": null,
+    "uuid": "7fad02c4-1418-11ed-954b-a18a28c30b23",
+    "modules": [
+        {
+            "id": 177886,
+            "type": 16,
+            "content": {
+                "title": {
+                    "en": "On Demand 6",
+                    "base": "On Demand 6",
+                    "changed": ""
+                },
+                "description": {
+                    "en": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                    "base": "Good descriptive writing creates an impression in the reader's mind of an event, a place, a person, or a thing that will set a mood.",
+                    "changed": ""
+                },
+                "custom_heading": {
+                    "en": "Session Description",
+                    "base": "Session Description",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177887,
+            "type": 1,
+            "content": {
+                "custom_heading": {
+                    "en": "Speakers",
+                    "base": "Speakers",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177888,
+            "type": 12,
+            "content": {
+                "custom_heading": {
+                    "en": "Questions",
+                    "base": "Questions",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177889,
+            "type": 13,
+            "content": {
+                "custom_heading": {
+                    "en": "Quizzes",
+                    "base": "Quizzes"
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177890,
+            "type": 14,
+            "content": {
+                "custom_heading": {
+                    "en": "Polls",
+                    "base": "Polls",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177891,
+            "type": 4,
+            "content": {
+                "custom_heading": {
+                    "en": "Products",
+                    "base": "Products",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177892,
+            "type": 8,
+            "content": {
+                "custom_heading": {
+                    "en": "Documents",
+                    "base": "Documents",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177893,
+            "type": 17,
+            "content": {
+                "custom_heading": {
+                    "en": "Similar Sessions",
+                    "base": "Similar Sessions",
+                    "changed": ""
+                }
+            },
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        },
+        {
+            "id": 177894,
+            "type": 10,
+            "content": null,
+            "is_on": true,
+            "content_modules": null,
+            "is_custom": false,
+            "styling_overrides": null,
+            "is_post_register_home_preview": false,
+            "is_edited": false,
+            "modules": null
+        }
+    ],
+    "video": null,
+    "image": null,
+    "video_duration": 0,
+    "ivs_channel": null,
+    "session_type": "on-demand",
+    "module_grouping": [
+        {
+            "icon": "infoOutline",
+            "name": {
+                "en": "Overview",
+                "base": "Overview",
+                "changed": ""
+            },
+            "uuid": "824de8e8-ca97-4b90-a885-666ffcbb0bb6",
+            "is_on": true,
+            "modules": [
+                177886,
+                177887,
+                177891,
+                177893
+            ]
+        },
+        {
+            "icon": "bar-graph",
+            "name": {
+                "en": "Polls",
+                "base": "Polls",
+                "changed": ""
+            },
+            "uuid": "2b27ca5f-9e8a-4810-a4f7-154ced73f1bb",
+            "is_on": true,
+            "modules": [
+                177889,
+                177890
+            ]
+        },
+        {
+            "icon": "documents",
+            "name": {
+                "en": "Documents",
+                "base": "Documents",
+                "changed": ""
+            },
+            "uuid": "adc3f35c-56fd-46c4-ab9f-5fd62a8cc7dc",
+            "is_on": true,
+            "modules": [
+                177892
+            ]
+        },
+        {
+            "icon": "images",
+            "name": {
+                "en": "Questions",
+                "base": "Questions",
+                "changed": ""
+            },
+            "uuid": "31627697-d499-473c-8abc-50a31b85b5ec",
+            "is_on": true,
+            "modules": [
+                177888
+            ]
+        }
+    ],
+    "on_demand_video": [
+        {
+            "name": "Sample1_16.mp4",
+            "type": "uploaded",
+            "uuid": "cc020b0b-bd1c-4bf5-ab6b-c6870019bd0d",
+            "image": "https://brandlive-upload.s3-us-west-2.amazonaws.com/uploads/101287/5577f74c-a591-4ce0-9afc-e5695087d9e4/thumbnail.jpg",
+            "video": 996,
+            "source": "https://brandlive-upload.s3-us-west-2.amazonaws.com/uploads/uploads/101287/854e53d7-0bf2-4278-82b2-79fdf426bb74/Sample1_16.mp4",
+            "status": 1,
+            "channel": 101287,
+            "archived": false,
+            "captions": [],
+            "duration": 30,
+            "hls_link": "https://brandlive-upload.s3-us-west-2.amazonaws.com/uploads/uploads/101287/854e53d7-0bf2-4278-82b2-79fdf426bb74/converted.m3u8",
+            "module_id": 33762,
+            "created_at": "2022-04-26T23:50:29.788Z",
+            "created_by": 7768,
+            "convert_job": "arn:aws:mediaconvert:us-west-2:111776770072:jobs/1651017029676-2is1be",
+            "is_fireside": false,
+            "modified_at": null,
+            "modified_by": null,
+            "base_language": "en",
+            "use_thumbnail": false,
+            "convert_status": 1,
+            "original_image": "https://brandlive-upload.s3-us-west-2.amazonaws.com/uploads/101287/5577f74c-a591-4ce0-9afc-e5695087d9e4/thumbnail.jpg",
+            "convert_progress": null,
+            "session_language": "en"
+        }
+    ],
+    "is_on": null,
+    "broadcast_type": null,
+    "use_different_thumbnails": false,
+    "pre_broadcast_thumbnail": null,
+    "post_broadcast_thumbnail": null,
+    "custom_css": null,
+    "breakout_rooms": null,
+    "replay_on": null,
+    "should_record": false,
+    "opentok_id": null,
+    "opentok_id_issued_timestamp": null,
+    "session_chat_enabled": true,
+    "streaming_options": {
+        "single_stream": false
+    },
+    "current_language": "en",
+    "video_player_controls_settings": {
+        "color_theme": "default"
+    },
+    "reaction_settings": {
+        "enabled": false,
+        "reactions": []
+    },
+    "session_chat_dark_mode_enabled": true,
+    "custom_css_compiled": null,
+    "use_safe_css": true,
+    "breakout_room_order": [
+        null
+    ]
+}

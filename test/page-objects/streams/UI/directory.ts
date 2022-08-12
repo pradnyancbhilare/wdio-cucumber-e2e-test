@@ -15,6 +15,10 @@ class Directory extends Page {
     get avatarToggleOFF() { return $(`(//div[text()='Avatar']//following::div[@class='form-control switch'])[1]`) }
     get bookmarkAttendeesToggleON() { return $(`(//div[text()='Avatar']//following::div[@class='form-control switch on'])[1])`) }
     get bookmarkAttendeesToggleOFF() { return $(`(//div[text()='Avatar']//following::div[@class='form-control switch'])[1]`) }
+    get filterToggleOFF() { return $(`(//div[text()='Filters']//following::div[@class='form-control switch'])[1]`) }
+    get filterToggleON() { return $(`(//div[text()='Filters']//following::div[@class='form-control switch on'])[1]`) }
+    get filterQuestion() { return $(`//div[@class='filter-tag not-selected tag-container']`) }
+    get saveFilter() { return $(`//button[@class='button primary']`) }
 
 
     async clickOnDirectoryCard() {
@@ -70,6 +74,52 @@ class Directory extends Page {
             }
         } catch (err) {
             err.message = `Error performing ${toggle} action on the directory toggle: , ${err.message} `
+            throw err
+        }
+    }
+
+    /*
+    * Select the added question as a filter
+    */
+    async selectFilterQuestion() {
+        try {
+            await this.click(await this.filterQuestion)
+            reporter.addStep("info", "Selected the Filter Question.")
+        } catch (err) {
+            err.message = `Error selecting the filter question: , ${err.message} `
+            throw err
+        }
+    }
+
+    /*
+    * Click On Save Filter button
+    */
+    async clickOnSaveFilter() {
+        try {
+            if (await this.saveFilter.isDisplayed()) {
+                await this.click(await this.saveFilter)
+                reporter.addStep("info", "Clicked on the Save Filter button.")
+            }
+        } catch (err) {
+            err.message = `Error clicking on the Save Filter button.`
+            throw err
+        }
+    }
+
+    /*
+    * Toggle action on Directory Filter
+    */
+    async filterToggleAction(toggle: string) {
+        try {
+            if (toggle.match("ON")) {
+                await this.click(await this.filterToggleOFF)
+                reporter.addStep("info", 'Enabled the Filter toggle.')
+            } else {
+                await this.click(await this.filterToggleON)
+                reporter.addStep("info", 'Disabled the Filter toggle.')
+            }
+        } catch (err) {
+            err.message = `Error performing ${toggle} action on the Filter toggle: , ${err.message} `
             throw err
         }
     }

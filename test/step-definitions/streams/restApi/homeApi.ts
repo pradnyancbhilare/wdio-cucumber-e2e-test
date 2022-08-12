@@ -61,6 +61,6 @@ Given (/^Get all events for channel for streams$/, async function(){
     console.log(`Channel id is: ${channelId}`)
     //@ts-ignore
     let response = await HomeRestApi.getEventsForChannel(browser.config.Streams_Api_Host, channelId)
-    chai.expect(response.length).to.greaterThanOrEqual(1)
+    chai.expect(response.body.length).to.greaterThanOrEqual(1)
     reporter.addStep("info", `Get all events for channel for streams... is success.`)
 })

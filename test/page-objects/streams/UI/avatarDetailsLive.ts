@@ -16,7 +16,7 @@ class AvatarDetailsLive extends Page {
         */
 
     async uploadAvatarDetails(fileName: string) {
-        let path = "./data/fileUpload/" + fileName
+        let path = (`${process.cwd()}/data/fileUpload/streams/${fileName}`)
         try {
             await (await this.uploadAvatar).addValue(path)
             reporter.addStep("info", 'Uploaded the file.')

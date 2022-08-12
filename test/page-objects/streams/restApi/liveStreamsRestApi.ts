@@ -9,6 +9,8 @@ class LiveStreamsRestApi {
     static postFillGeneralInfoRes: any
     static postFillProfileInfoRes: any
     static postFillAvatarInfoRes: any
+    static getGeneratePageSessionByEventIdRes: any
+    static postValidateRegisteredUserSessionRes: any
     static postValidateRegistrationRes: any
     static postReregisterCheckRes: any
     static getNavigateToSessionRes = new Map<string, string>()
@@ -28,6 +30,10 @@ class LiveStreamsRestApi {
     static patchBroadcastAtFiresideStartRes: any
     static patchBroadcastAtFiresideStopRes: any
     static postFiresideActionsRes: any
+    static postCardPaymentIntentRes: any
+    static postCardPaymentConfirmationRes: any
+    static updateEndTimeRes: any
+    static updatePageSessionEndTimeRes: any
 
     constructor(){
 
@@ -126,6 +132,128 @@ class LiveStreamsRestApi {
         return LiveStreamsRestApi.postFillAvatarInfoRes
     }
 
+    async postCardPaymentIntent(host: string, payload: string): Promise<any> {
+
+        let endpoint = `/e3-create-intent`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+        
+        let response = await request(host)
+                    .post(endpoint)
+                    //.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+                    .set("bl-profile-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+                    .set("content-type", "application/json")
+                    .accept("application/json")
+                    .query(queryStr)
+                    .send(payload)
+
+        console.log(`>> Response: ${response.text.replace('\\', '')}`)
+        LiveStreamsRestApi.postCardPaymentIntentRes = JSON.parse(response.text.replace('\\', ''))
+        return LiveStreamsRestApi.postCardPaymentIntentRes
+    }
+
+    async postCardPaymentConfirmation(payload: string): Promise<any> {
+
+        let payLoadJson = JSON.parse(payload)
+        // example of pathVar = pi_3LOtFgCiHEBCEv8Z0B3QVKZa
+        let pathVar = payLoadJson.pathVar
+        // example of key = pk_test_51IVK3vCiHEBCEv8ZFILGeZ62DfQ35raZ40ElIHU90R1usbbVt0iLKxpkIhPNWysXqKlFJS3UADouzPLQQjtfnOgE00mAqmcGIR
+        let key = 'pk_test_51IVK3vCiHEBCEv8ZFILGeZ62DfQ35raZ40ElIHU90R1usbbVt0iLKxpkIhPNWysXqKlFJS3UADouzPLQQjtfnOgE00mAqmcGIR'
+        // example of client_secret = ${pathVar}_secret_tQ7ajMkHrpfsCYTRrTRk65Xjm
+        let client_secret = payLoadJson.clientSecret
+
+        let email = JSON.parse(payload).email
+
+        let endpoint = `https://api.stripe.com/v1/payment_intents/${pathVar}/confirm`;
+        console.log(`The url is >> ${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${endpoint}?${queryStr}`)
+        
+        let response = await request(endpoint)
+                    .post('/')
+                    .type('form')
+                    //.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+                    .set("bl-profile-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+                    .set("content-type", "application/x-www-form-urlencoded")
+                    .accept("application/json")
+                    .query(queryStr)
+                    .send(`{receipt_email: ${email}}`)
+                    .send({type: 'card'})
+                    .send(`{billing_details_email: ${email}}`)
+                    .send({card_number: 4242424242424242})
+                    .send({card_cvc: 123})
+                    .send({card_exp_month: 12})
+                    .send({card_exp_year: 50})
+                    .send({guid: 'db25a4f7-26e9-4b3e-91c4-dea6f76adcda905c53'})
+                    .send({muid: 'fc239aee-320b-4178-bddc-cbae818fed8b8ab222'})
+                    .send({sid: 'fadbee62-3e04-4626-8201-6360fb173661a60c06'})
+                    .send({payment_user_agent: 'stripe.js/db46c9ed5; stripe-js-v3/db46c9ed5'})
+                    .send({time_on_page: 100000})
+                    .send({expected_payment_method_type: 'card'})
+                    .send({use_stripe_sdk: true})
+                    .send(`{key: ${key}}`)
+                    .send(`{client_secret: ${client_secret}}`)
+
+        console.log(`>> Response: ${response.text.replace('\\', '')}`)
+        LiveStreamsRestApi.postCardPaymentConfirmationRes = JSON.parse(response.text.replace('\\', ''))
+        return LiveStreamsRestApi.postCardPaymentConfirmationRes
+    }
+
+    async getGeneratePageSessionByEventId(host: string, eventId: string, registrationId: string): Promise<any> {
+
+        let endpoint = `/e3-generate-page-session/${eventId}`;
+        console.log(`The url is >> ${host}${endpoint}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}
+        &registration_id=${registrationId}&lang=en-US`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+        
+        let response = await request(host)
+                    .get(endpoint)
+                    .set("content-type", "application/json")
+                    .set("bl-profile-token", LiveStreamsRestApi.postFillGeneralInfoRes.token)
+                    .accept("*/*")
+                    .query(queryStr)
+
+        console.log(`>> Response: ${response.text.replace('\\', '')}`)
+        LiveStreamsRestApi.getGeneratePageSessionByEventIdRes = JSON.parse(response.text.replace('\\', ''))
+  
+        return LiveStreamsRestApi.getGeneratePageSessionByEventIdRes
+
+    }
+
+    async postValidateRegisteredUserSession(host: string, eventUuid: string, payload: string): Promise<any> {
+
+        let endpoint = `/e3-validate-registered-user-sessions/${eventUuid}`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+        
+        let response = await request(host)
+                    .post(endpoint)
+                    //.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+                    .set("bl-profile-token", LiveStreamsRestApi.postFillGeneralInfoRes.token)
+                    .set("content-type", "application/json")
+                    .accept("application/json")
+                    .query(queryStr)
+                    .send(payload)
+
+        console.log(`>> Response: ${response.text.replace('\\', '')}`)
+        LiveStreamsRestApi.postValidateRegisteredUserSessionRes = JSON.parse(response.text.replace('\\', ''))
+        return LiveStreamsRestApi.postValidateRegisteredUserSessionRes
+    }
+
     async postValidateRegistration(host: string, eventUuid: string, payload: string): Promise<any> {
 
         let endpoint = `/e3-validate-registration/${eventUuid}`;
@@ -162,9 +290,7 @@ class LiveStreamsRestApi {
         
         let response = await request(host)
                     .post(endpoint)
-                    //.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
-                    //.set("bl-profile-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
-                    //.set("bl-profile-token", null)
+                    .set("bl-profile-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
                     .set("content-type", "application/json")
                     .accept("application/json")
                     .query(queryStr)
@@ -178,7 +304,6 @@ class LiveStreamsRestApi {
 
     async getNavigateToSession(host: string, registrationId: string, sessionId: number, sessionType: string): Promise<any> {
 
-        //let endpoint = `/e3-generate-page-session/${sessionId}`;
         let endpoint = `/e3-generate-session/${sessionId}`;
         console.log(`The url is >> ${host}${endpoint}`)
 
@@ -339,7 +464,7 @@ class LiveStreamsRestApi {
                     .query(queryStr)
 
         console.log(`>> Response: ${response.text.replace('\\', '')}`)
-        LiveStreamsRestApi.getBreakoutRoomUsageRes = JSON.parse(response.text.replace('\\', ''))
+        LiveStreamsRestApi.getBreakoutRoomUsageRes = response.text.replace('\\', '')
   
         return LiveStreamsRestApi.getBreakoutRoomUsageRes
     }
@@ -390,6 +515,7 @@ class LiveStreamsRestApi {
         } else if (sessionType.match("Fireside")) {
             LiveStreamsRestApi.getRoomOpentokTestRes.set("Fireside", response.text.replace('\\', ''))
         }
+		LiveStreamsRestApi.getRoomOpentokTestRes.set("token", JSON.parse(response.text.replace('\\', ''))?.token)
   
         return LiveStreamsRestApi.getRoomOpentokTestRes
     }
@@ -406,7 +532,7 @@ class LiveStreamsRestApi {
         let response = await request(host)
                     .get(endpoint)
                     .set("content-type", "application/json")
-                    //.set("bl-profile-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+					.set("x-opentok-auth", LiveStreamsRestApi.getRoomOpentokTestRes.get('token'))
                     .accept("application/json")
                     .query(queryStr)
 
@@ -415,25 +541,31 @@ class LiveStreamsRestApi {
             LiveStreamsRestApi.getOpentokSessionByIdRes.set("Breakout Room", response.text.replace('\\', ''))
         } else if (sessionType.match("Fireside")) {
             LiveStreamsRestApi.getOpentokSessionByIdRes.set("Fireside", response.text.replace('\\', ''))
-        }
+				}
   
         return LiveStreamsRestApi.getOpentokSessionByIdRes
     }
 
-    async getOpentokToken(host: string, sessionId: string, sessionType:string): Promise<any> {
+    async getOpentokToken(host: string, sessionId: string, sessionType: string): Promise<any> {
         let endpoint: string
         let queryStr: string
-        await cloudflareParameters.generateCloudflareParameters(endpoint)
         if(sessionType.match('Fireside')) {
-            endpoint = `/e3-get-opentok-token/opentok/${sessionId}/firesides/token`;
+            const firesideSessionIdRes = JSON.parse(LiveStreamsRestApi.getOpentokSessionByIdRes.get('Fireside'))
+            let _sessionId = firesideSessionIdRes?.[0]?.session_id ?? sessionId
+            endpoint = `/e3-get-opentok-token/opentok/${_sessionId}/firesides/token`
+            await cloudflareParameters.generateCloudflareParameters(endpoint)
             queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}&isPublisher=true`
-        } else {
-            endpoint = `/e3-get-opentok-token/opentok/${sessionId}/token`;
+        }
+        if (sessionType.match('Breakout Room')) {
+            const breakoutRoomResponse = LiveStreamsRestApi.getBreakoutRoomByUuidRes
+            const opentokId = breakoutRoomResponse.opentokId
+            endpoint = `/e3-get-opentok-token/opentok/${opentokId}/token`;
+            await cloudflareParameters.generateCloudflareParameters(endpoint)
             queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
         }
         console.log(`The url is >> ${host}${endpoint}`) 
         console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
-        
+       
         let response = await request(host)
                     .get(endpoint)
                     .set("content-type", "application/json")
@@ -441,12 +573,18 @@ class LiveStreamsRestApi {
                     .accept("*/*")
                     .query(queryStr)
 
-        console.log(`>> Response: ${response.text.replace('\\', '')}`)
+				const responseText = response.text.replace('\\', '')
+        console.log(`>> Response: ${responseText}`)
+				
+				if (responseText.toLowerCase().includes('invalid request')) {
+					console.log(response)
+				}
         if(sessionType.match("Breakout Room")) {
-            LiveStreamsRestApi.getOpentokTokenRes.set("Breakout Room", response.text.replace('\\', ''))
+            LiveStreamsRestApi.getOpentokTokenRes.set("Breakout Room", responseText)
         } else if (sessionType.match("Fireside")) {
-            LiveStreamsRestApi.getOpentokTokenRes.set("Fireside", response.text.replace('\\', ''))
-        }
+            LiveStreamsRestApi.getOpentokTokenRes.set("Fireside", responseText)
+				}
+				LiveStreamsRestApi.getOpentokTokenRes.set("token", JSON.parse(responseText)?.token)
   
         return LiveStreamsRestApi.getOpentokTokenRes
     }
@@ -543,33 +681,72 @@ class LiveStreamsRestApi {
 
         console.log(`>> Response: ${response.text.replace('\\', '')}`)
         //console.log(`>> Response: ${JSON.stringify(response)}`)
-        LiveStreamsRestApi.putBroadcastAtFiresideAliveRes = JSON.parse(response.text.replace('\\', ''))
+        LiveStreamsRestApi.putBroadcastAtFiresideAliveRes = response.text.replace('\\', '')
         return LiveStreamsRestApi.putBroadcastAtFiresideAliveRes
     }
 
-    async patchBroadcastAtFiresideStart(host: string, eventUuid: string, payload: string): Promise<any> {
+    async patchBroadcastAtFiresideStart(host: string, sessionUuid: string, payload: string): Promise<any> {
+			
+				// In the browser we rely on sockets to let the client know when the broadcast is ready to go live and
+				// the user just has to sit and watch patiently until it's ready.
+				// Since we are in headless mode here we do not have socket io client so we run a recursive api call to
+				// check if the broadcast machine is ready, once it's ready.
+				await browser.setTimeout({implicit: 1000 * 60 * 5, pageLoad: 1000 * 60 * 5, script: 1000 * 60 * 5})
 
-        let endpoint = `/v3/admin/broadcast/${eventUuid}/start/`;
-        console.log(`The url is >> ${host}${endpoint}`)
-        console.log(`The payload is >> ${payload}`)
+				let statusTries = 0;
+				const recursivelyCheckBroadcastMachineStatus = async () => {
+						if (statusTries >= 10) {
+							console.log('Too many tries, bailing')
+							return
+						}
+						statusTries++
+						let endpoint = `/v3/admin/broadcast/${sessionUuid}`
+						await cloudflareParameters.generateCloudflareParameters(endpoint)
+						let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+						console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
 
-        await cloudflareParameters.generateCloudflareParameters(endpoint)
-        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
-        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
-        
-        let response = await request(host)
-                    .patch(endpoint)
-                    //.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
-                    .set("bl-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
-                    .set("content-type", "application/json")
-                    .accept("application/json")
-                    .query(queryStr)
-                    .send(payload)
+						let _response = await request(host)
+												.get(endpoint)
+												.set("bl-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+												.set("content-type", "application/json")
+												.accept("*/*")
+												.query(queryStr)
 
-        console.log(`>> Response: ${response.text.replace('\\', '')}`)
-        //console.log(`>> Response: ${JSON.stringify(response)}`)
-        LiveStreamsRestApi.patchBroadcastAtFiresideStartRes = JSON.parse(response.text.replace('\\', ''))
-        return LiveStreamsRestApi.patchBroadcastAtFiresideStartRes
+					const body = JSON.parse(_response.text.replace('\\', ''))
+					console.log('STATUS BODY', body)
+
+					if (body?.current_state !== 'ready') {
+						console.log('NOT READY, re-trying in 30 seconds...')
+						await browser.pause(30000)
+						console.log('Retrying...')
+						return recursivelyCheckBroadcastMachineStatus()
+					}
+					console.log('Broadcast machine ready')
+					return
+				}
+
+				await recursivelyCheckBroadcastMachineStatus()
+
+				let endpoint = `/v3/admin/broadcast/${sessionUuid}/start/`;
+				console.log(`The url is >> ${host}${endpoint}`)
+				console.log(`The payload is >> ${payload}`)
+
+				await cloudflareParameters.generateCloudflareParameters(endpoint)
+				let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+				console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+
+				let response = await request(host)
+										.patch(endpoint)
+										//.set("bl-token", Object.getPrototypeOf(HomeRestApi).constructor.streamsToken)
+										.set("bl-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+										.set("content-type", "application/json")
+										.accept("application/json")
+										.query(queryStr)
+										.send(payload)
+				
+				console.log(`>> Response: ${response.text.replace('\\', '')}`)
+				LiveStreamsRestApi.patchBroadcastAtFiresideStartRes = JSON.parse(response.text.replace('\\', ''))
+				return LiveStreamsRestApi.patchBroadcastAtFiresideStartRes
     }
 
     async patchBroadcastAtFiresideStop(host: string, eventUuid: string, payload: string): Promise<any> {
@@ -622,6 +799,51 @@ class LiveStreamsRestApi {
         return LiveStreamsRestApi.postFiresideActionsRes
     }
 
+    async updateEndTime(host: string, payload: string): Promise<any> {
+
+        let endpoint = `/e3-update-end-time`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+        
+        let response = await request(host)
+                    .post(endpoint)
+                    .set("bl-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+                    .set("content-type", "application/json")
+                    .accept("application/json")
+                    .query(queryStr)
+                    .send(payload)
+
+        console.log(`>> Response: ${JSON.stringify(response)}`)
+        LiveStreamsRestApi.updateEndTimeRes = JSON.parse(JSON.stringify(response))
+        return LiveStreamsRestApi.updateEndTimeRes
+    }
+
+    async updatePageSessionEndTime(host: string, payload: string): Promise<any> {
+
+        let endpoint = `/update-page-session-end-time`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+
+        await cloudflareParameters.generateCloudflareParameters(endpoint)
+        let queryStr = `mac=${cloudflareParameters.mac}&expiry=${cloudflareParameters.expiry}`
+        console.log(`The url with query is >> ${host}${endpoint}?${queryStr}`)
+        
+        let response = await request(host)
+                    .post(endpoint)
+                    .set("bl-token", LiveStreamsRestApi.postFillAvatarInfoRes.token)
+                    .set("content-type", "application/json")
+                    .accept("application/json")
+                    .query(queryStr)
+                    .send(payload)
+
+        console.log(`>> Response: ${JSON.stringify(response)}`)
+        LiveStreamsRestApi.updatePageSessionEndTimeRes = JSON.parse(JSON.stringify(response))
+        return LiveStreamsRestApi.updatePageSessionEndTimeRes
+    }
 }
 
 export default new LiveStreamsRestApi

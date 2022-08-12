@@ -17,6 +17,12 @@ export default class Page {
         }
         await ele.click()
     }
+
+    async jsClick(ele: WebdriverIO.Element) {
+        await ele.waitForDisplayed({ timeout: 5000 })
+        browser.execute("arguments[0].click();", ele);
+    }
+
     async typeInto(ele: WebdriverIO.Element, text: string) {
         await ele.waitForDisplayed({ timeout: 5000 })
         if (!ele.elementId) {

@@ -146,7 +146,7 @@ export const config: Options.Testrunner = {
             browserName: 'chrome',
             //path: '/wd/hub',
             "goog:chromeOptions": {
-                args: headless.toUpperCase() === "Y" ? ["--headless", "--disable-dev-shm-usage", "--no-sandbox"] : ["--use-fake-ui-for-media-stream", "--window-size=1920,1080"]
+                args: headless.toUpperCase() === "Y" ? ["--headless", "--disable-dev-shm-usage", "--no-sandbox"] : ["--use-fake-ui-for-media-stream","--use-fake-device-for-media-stream", "--window-size=1920,1080"]
             },
             acceptInsecureCerts: true,
             timeouts: {implicit: 5000, pageLoad: 20000, script: 30000}
@@ -278,39 +278,39 @@ export const config: Options.Testrunner = {
     //services: ['chromedriver'],
     //services: ['geckodriver'],
     services: brwsr.toUpperCase() === "CHROME" ? ['chromedriver'] : brwsr.toUpperCase() === "FIREFOX" ? ['geckodriver'] :
-    brwsr.toUpperCase() === "MULTIPLE" ? ['chromedriver', 'geckodriver'] : 
+    brwsr.toUpperCase() === "MULTIPLE" ? ['chromedriver', 'geckodriver'] :
     [
-        ['docker', [{ 
+        ['docker', [{
         image: 'selenium/standalone-chrome',
         healthCheck: 'http://localhost:4444',
-        options: { 
+        options: {
           p: ['4444:4444'],
           shmSize: '2g'
-        }    
-        }, { 
+        }
+        }, {
         image: 'selenium/standalone-firefox',
         healthCheck: 'http://localhost:4444',
-        options: { 
+        options: {
           p: ['4444:4444'],
           shmSize: '2g'
-        }    
+        }
         }]]
     ],
     // services: [
-    //     ['docker', [{ 
+    //     ['docker', [{
     //     image: 'selenium/standalone-chrome',
     //     healthCheck: 'http://localhost:4444',
-    //     options: { 
+    //     options: {
     //       p: ['4444:4444'],
     //       shmSize: '2g'
-    //     }    
-    //     }, { 
+    //     }
+    //     }, {
     //     image: 'selenium/standalone-firefox',
     //     healthCheck: 'http://localhost:4444',
-    //     options: { 
+    //     options: {
     //       p: ['4444:4444'],
     //       shmSize: '2g'
-    //     }    
+    //     }
     //     }]]
     // ],
 
@@ -365,11 +365,11 @@ export const config: Options.Testrunner = {
         // <string> (expression) only execute the features or scenarios with tags matching the expression
         tagExpression: '',
         // <number> timeout for step definitions
-        timeout: 300000,
+        timeout: process.env.BROWSER === 'DOCKER' ? 30 * 60 * 1000 : 300000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
         ignoreUndefinedDefinitions: false
     },
-    
+
     //
     // =====
     // Hooks
@@ -502,8 +502,8 @@ export const config: Options.Testrunner = {
     afterFeature: function (uri, feature) {
         // Add more env details
         allure.addEnvironment("Environment: ", browser.config.Environment)
-    },  
-    
+    },
+
     /**
      * Runs after a WebdriverIO command gets executed
      * @param {String} commandName hook command name

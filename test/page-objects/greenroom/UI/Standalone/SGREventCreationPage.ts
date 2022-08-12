@@ -28,29 +28,29 @@ class SGREventCreationPage extends Page {
 	/*
 	 * Create new SGR Event
 	 */
-	async createNewSGREvent() {
+	async createNewSGREvent(invite: string) {
 		try{
 			await this.click(await this.clickSGREventButton)
 			SGREventCreationPage.getSGREventName =  await this.generateEventName()
 
 			await this.typeInto(await this.inputSGREventTitleName,SGREventCreationPage.getSGREventName)
+			await browser.pause(1000)
 
 			await this.click(await this.clickStartDateWidgetOfSGREvent)
-			await this.typeInto(await this.selectStartDateOfSGREvent, new Date().toLocaleDateString() )
+			await this.typeInto(await this.selectStartDateOfSGREvent, (await this.addDaysToDate()))
+	
+			await browser.pause(2000)
+
 
 			await this.click(await this.clickStartTimeWidgetOfSGREvent)
-			await this.typeInto(await this.selectStartTimeOfSGREvent, await this.getSGREventTime('Start-Time') )
-			await browser.pause(1000)
-
-			await this.click(await this.clickEndDateOfSGREvent)
-
-			await this.click(await this.clickEndTimeWidgetOfSGREvent)
 			await browser.keys(['Control','a'])
 			await browser.keys(['Backspace'])
-			await this.typeInto(await this.selectEndTimeOfSGREvent, await this.getSGREventTime('End-Time') )
-			await browser.pause(1000)
+			await this.typeInto(await this.selectStartTimeOfSGREvent, await this.getSGREventTime('Start-Time') )
+			await browser.pause(2000)
 
-			await this.typeInto(await this.sendEmailInvite, 'brandliveqatest3@gmail.com')
+			await this.click(await this.clickEndDateOfSGREvent)
+			
+			await this.typeInto(await this.sendEmailInvite, invite)
 			await this.click(await this.createSGREvent)
 			await browser.pause(5000)
 
@@ -62,10 +62,17 @@ class SGREventCreationPage extends Page {
 
 
 
-
 	//private methods
 
+	private async addDaysToDate() {
 
+		const now = new Date()
+		const next5Days = new Date(new Date(now).setDate(now.getDate() + 5))
+		console.log('now', now.toLocaleDateString())
+		console.log('Next5Day', next5Days.toLocaleDateString())
+		return next5Days.toLocaleString();
+	  }
+	  
 	/*
 	 * private method for getting SGR Event Name
 	 */

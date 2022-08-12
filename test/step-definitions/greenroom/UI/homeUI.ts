@@ -23,7 +23,10 @@ Given (/^Login to greenroom app: (.*) as (.*)$/, async function(app: string, rol
             break;
         case "presenter":
             reporter.addStep("info", `The role value is ${role}...`)
-
+            let presenterUrl = `${greenroom_host}`
+            await HomePageUi.navigateToGreenroomUrl(presenterUrl)
+            await HomePageUi.greenroomLoginForApp(email, password)
+            await HomePageUi.confirmPresenterDetails()
             break;
         default:
             reporter.addStep("info", `The role value ${role} is not valid...`)

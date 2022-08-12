@@ -19,7 +19,7 @@ class HomePageUI extends Page {
     get appLoginEmailInputBox() {return $(`//input[1]`)}
     get appLoginPasswordInputBox() {return $(`[name=Password]`)}
     get appLoginButton() {return $(`//button`)}
-    get channelListForProfile() {return $$(`//div[@class='home-sidebar-wrapper flex']/div`)}
+    get channelListForProfile() {return $$(`//div[contains(@class,'home-channel-bubble-container flex')]`)}
     get channelNameAtHeader() {return $(`//header/span`)}
     get notificationBellAtHeader() {return $(`//header/div/button`)}
     get profileBubbleAtHeader() {return $(`//header/div/div/div`)}
@@ -51,6 +51,9 @@ class HomePageUI extends Page {
 	get searchSGRName(){return $(`//input[@placeholder='Search']`)}
 	get sgrEventTitleName() {return $(`div[class='event-titles'] h4`)}
 	get clickEventAction(){return $(`//div[@class='event-row']`)}
+
+    //Confirm presenter details
+    get nextButton(){return $(`//button[contains(@class,'next background-green')]`)}
 
 
 
@@ -338,6 +341,23 @@ class HomePageUI extends Page {
         await browser.pause(1000)
         reporter.addStep("info", `The profile option ${index} selected successfully...`)
     }
+
+
+    async confirmPresenterDetails() {
+		try {
+            await this.click(await this.nextButton)
+			await browser.pause(1000)
+            await this.click(await this.nextButton)
+			await browser.pause(1000)
+            await this.click(await this.nextButton)
+			await browser.pause(1000)
+            await this.click(await this.nextButton)
+			await browser.pause(1000)
+		} catch (err){
+			err.message = `Error confirming presenter details`
+			throw err
+		}
+	}
 
 
 }

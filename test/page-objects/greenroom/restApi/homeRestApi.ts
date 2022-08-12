@@ -1,4 +1,5 @@
 import request from "supertest"
+import standaloneHomeRestApi from "./standaloneHomeRestApi";
 
 class HomeRestApi {
 
@@ -8,6 +9,9 @@ class HomeRestApi {
     static getChannelsForProfileRes: any
     static getSessionTypesRes: any
     static getEventsForChannelRes: any
+    static getBroadcastCheckRes: any
+    static getGreenroomProfilesRest: any
+    static postLoadTeamsRest: any
 
     constructor() {
 
@@ -92,11 +96,57 @@ class HomeRestApi {
                     .set("bl-token", HomeRestApi.greenroomToken)
                     .accept("application/json")
 
-        //console.log(`>> Response: ${JSON.stringify(response.body)}`)
+        console.log(`>> channel Response: ${JSON.stringify(response.body)}`)
         HomeRestApi.getEventsForChannelRes = JSON.parse(JSON.stringify(response.body))
-        return HomeRestApi.getEventsForChannelRes
+        return response;
     }
 
+    async getBroadcastCheckByMeetingId(host: string): Promise<any> {
+        let endpoint = `/v2/greenroom/broadcast/check/${Object.getPrototypeOf(standaloneHomeRestApi).constructor.getNewSGRMeetingId}`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        
+        let response = await request(host)
+                    .get(endpoint)
+                    .set("content-type", "application/json")
+                    .set("bl-token",HomeRestApi.greenroomToken)
+                    .accept("application/json")
+
+        console.log(`>>Get broadcast check by meeting id Response: ${JSON.stringify(response.body)}`)
+        HomeRestApi.getBroadcastCheckRes = JSON.parse(JSON.stringify(response))
+        return HomeRestApi.getBroadcastCheckRes
+    }
+
+    async getGreenroomProfiles(host: string): Promise<any> {
+        let endpoint = `/v2/greenroom/profile/greenroom`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        
+        let response = await request(host)
+                    .get(endpoint)
+                    .set("content-type", "application/json")
+                    .set("bl-token",HomeRestApi.greenroomToken)
+                    .accept("application/json")
+
+        console.log(`>>Get greenroom profiles Response: ${JSON.stringify(response.body)}`)
+        HomeRestApi.getGreenroomProfilesRest = JSON.parse(JSON.stringify(response))
+        return HomeRestApi.getGreenroomProfilesRest
+    }
+
+    async postLoadTeams(host: string, payload: string): Promise<any> {
+
+        let endpoint = `/v2/greenroom/home/load-teams`;
+        console.log(`The url is >> ${host}${endpoint}`)
+        console.log(`The payload is >> ${payload}`)
+        
+        let response = await request(host)
+                    .post(endpoint)
+                    .set("content-type", "application/json")
+                    .set("bl-token",HomeRestApi.greenroomToken)
+                    .accept("application/json")
+                    .send(payload)
+
+        console.log(`>>Post Load Teams Response: ${JSON.stringify(response.body)}`)
+        return response
+    }
 }
 
 export default new HomeRestApi

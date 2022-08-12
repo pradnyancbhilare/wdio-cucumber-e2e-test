@@ -7,11 +7,11 @@ import editJsonFile from "edit-json-file"
 import {v4 as uuidv4} from 'uuid'
 import fs from "fs"
 
-async function createEventJsonFile(response: any) {
-    if(fs.existsSync("./data/jsonFiles/payload_E3_event.json")) {
-        fs.rmSync("./data/jsonFiles/payload_E3_event.json", {recursive:true})
+export async function createEventJsonFile(response: any) {
+    if(fs.existsSync("./data/jsonFiles/streams/payload_E3_event.json")) {
+        fs.rmSync("./data/jsonFiles//streams/payload_E3_event.json", {recursive:true})
     }
-    fs.writeFileSync("./data/jsonFiles/payload_E3_event.json", JSON.stringify(response, null, 4))
+    fs.writeFileSync("./data/jsonFiles/streams/payload_E3_event.json", JSON.stringify(response, null, 4))
 }
 
 async function getChannelId(channelName: string): Promise<number> {
@@ -93,7 +93,7 @@ Given(/^Create new "(.*)" session based event$/, async function(sessionType: str
     let sessionUuid = uuidv4()
     console.log(`>> UUID is ${sessionUuid}`)
 
-    let file = editJsonFile(`./data/jsonFiles/payload_E3_eventCreation.json`)
+    let file = editJsonFile(`./data/jsonFiles/streams/payload_E3_eventCreation.json`)
     file.set("channel", channelId)
     file.set("template", eventTemplateNum)
     file.set("name", eventName)
@@ -195,7 +195,7 @@ Given(/^Create new all sessions based event$/, async function(){
     let sessionUuid = uuidv4()
     console.log(`>> UUID is ${sessionUuid}`)
 
-    let file = editJsonFile(`./data/jsonFiles/payload_E3_eventCreation.json`)
+    let file = editJsonFile(`./data/jsonFiles/streams/payload_E3_eventCreation.json`)
     file.set("channel", channelId)
     file.set("template", eventTemplateNum)
     file.set("name", eventName)

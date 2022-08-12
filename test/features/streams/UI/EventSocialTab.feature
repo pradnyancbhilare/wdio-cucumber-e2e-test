@@ -17,6 +17,16 @@ Scenario: Verify the directory functionality
   And Check bookmark icon is displayed on the attendees profile and functioning correctly
   And Enable the Avatar toggles
   And Avatar can be seen to the attendees on the directory page
+  And Add multi-select or drop down registration questions
+    | QuestionTitle | QuestionType   | NoOfOptions | ValueOne    | ValueTwo   | ValueThree        |
+    | Job Title     | Dropdown List  | 3           | Teach Lead  | QA Manager | Product Engineer  |
+  And Save filter for the registration questions
+  And Enable the filter toggle
+  And Check attendee registration with registration questions
+    | FirstName | LastName | Email          | Passcode | CompanyName | Bio        | FunFact  | MediaName   |
+    | Adam      | Denny    | adam@gmail.com | PASS123  | FA          | Tech Lead  | Fun Fact | avatar1.jpg |
+  And Filter is seen on the live page and functioning correctly for the registered attendees
+
   
  Scenario: Verify the profile details functionality
   And Enable the Profile details About and Topics toggles
@@ -27,7 +37,12 @@ Scenario: Verify the directory functionality
 Scenario: Verify the messaging functionality
   And Enable the Direct Messaging toggle
   And Create a new event channel
+    | EventChannelName  | MediaName   |
+    | Brandlive Channel | avatar2.jpg |
   And Enable the Topic Group Chats toggle
-  And Check the Chat bubble and event channel is displayed on the live page.
+  And Check the Chat bubble and event channel is displayed on the live page
+    | EventChannelName  | 
+    | Brandlive Channel |
   And Verify attendee is able to send message in the event channel
-  And Logged out of Events "3.0"
+    | ChatMessage     | 
+    | Hello Brandlive |
